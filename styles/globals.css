@@ -92,9 +92,9 @@
   }
 
   .layer1 {
-    background-image: url("../public/layered-waves4.svg");
+    background-image: url("/layered-waves4.svg");
   }
   .layer2 {
-    background-image: url("../public/wave-haikei.svg");
+    background-image: url("/wave-haikei.svg");
   }
 }
