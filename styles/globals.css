@@ -1,3 +1,100 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  html {
+    scroll-behavior: smooth;
+    /* height: 100%; */
+  }
+
+  body {
+    /* height: 100%; */
+  }
+
+  .bg-button-class {
+    @apply md:hidden w-10 h-10;
+  }
+
+  .section {
+    @apply relative flex flex-col items-center min-h-[400px] p-80;
+  }
+
+  .curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .curve svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 254px;
+  }
+
+  .curve .shape-fill {
+    @apply fill-gray-700;
+  }
+  .wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 143px;
+  }
+
+  .wave .shape-fill {
+    @apply fill-blue-500;
+  }
+
+  .wave2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .wave2 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 249px;
+    transform: rotateY(180deg);
+  }
+
+  .wave2 .shape-fill {
+    @apply fill-green-500;
+  }
+
+  .spacer {
+    aspect-ratio: 960/300;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+  }
+
+  .layer1 {
+    background-image: url("../public/layered-waves4.svg");
+  }
+  .layer2 {
+    background-image: url("../public/wave-haikei.svg");
+  }
+}
