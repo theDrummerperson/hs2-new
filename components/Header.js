@@ -12,7 +12,7 @@ export default function Header() {
       {/* Left - Logo */}
       <div className="logo-wrapper cursor-pointer" onClick={() => router.push("/")}>
   <Image
-    src="/H-STRLmain.png"
+    src="/H-STR.png"
     alt="Holland Street Logo"
     width={180}
     height={80}
