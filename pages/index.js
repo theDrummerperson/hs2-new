@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { elastic as Menu } from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -31,9 +31,11 @@ var styles = {
   bmMenuWrap: {
     position: "fixed",
     height: "100%",
-    width: "100vw",
-    maxWidth: "275px",
+    width: "100vw", // ✅ Full width
+    left: 0,         // ✅ Ensure it's anchored to the left
+    top: 0           // ✅ Ensure it's anchored to the top
   },
+  
   bmMenu: {
     background: "#222222",
     padding: "1.5em .75em 0",
@@ -42,7 +44,7 @@ var styles = {
   },
  
   bmOverlay: {
-    background: "rgba(0, 0, 0, 0.3)",
+    background: "rgba(0, 0, 0, 8.5)",
   },
 
 };
