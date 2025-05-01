@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -6,110 +8,39 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <header className="fixed w-full top-0 z-50 grid grid-cols-3 shadow-lg bg-white p-5 xl:px-8 items-center">
-      <div
-        className="relative flex items-center h-10 w-36 cursor-pointer my-auto "
-        onClick={() => router.push("/")}
-      >
-        <Image
-          src="https://links.papareact.com/qd3"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="left"
-        />
-      </div>
+    <header className="fixed w-full top-0 z-50 grid grid-cols-3 shadow-md bg-[#F9F6F1] px-12 py-11 xl:px-8 items-center text-[#222222]">
+      {/* Left - Logo */}
+      <div className="logo-wrapper cursor-pointer" onClick={() => router.push("/")}>
+  <Image
+    src="/H-STRLmain.png"
+    alt="Holland Street Logo"
+    width={180}
+    height={80}
+   className="logo-image shadow-sm"/>
+</div>
 
-      {/* Middle links */}
-      <div className="hidden md:flex space-x-6 justify-center">
-        <Link
-          className="relative md:flex h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#one"
-        >
-          One
-        </Link>
-        <Link
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#two"
-        >
-          Two
-        </Link>
-        <Link
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#three"
-        >
-          Three
-        </Link>
 
-        <Link
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#four"
-        >
-          Four
-        </Link>
-        <Link
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#five"
-        >
-          Five
-        </Link>
-        <Link
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="#six"
-        >
-          Six
-        </Link>
-      </div>
+      {/* Middle - Navigation Links (desktop only) */}
+      
+      <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
+  <Link href="#about">
+    <a className="hover:text-[#8A0303] transition-colors duration-150">ABOUT</a>
+  </Link>
+  <Link href="#projects">
+    <a className="hover:text-[#8A0303] transition-colors duration-150">PROJECTS</a>
+  </Link>
+  <Link href="#contact">
+    <a className="hover:text-[#8A0303] transition-colors duration-150">CONTACT</a>
+  </Link>
+</nav>
 
-      {/* Right - Socials */}
-      <div className="hidden md:flex space-x-4 justify-end">
-        <a
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="https://discord.com/"
-        >
-          <Image
-            src="/Discord-Logo-Color.png"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
-            alt="Discord"
-          />
-        </a>
-        <a
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="https://twitter.com/"
-        >
-          <Image
-            src="/Twitter social icons - circle - blue.png"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
-            alt="Twitter"
-          />
-        </a>
-        <a
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="https://www.instagram.com/"
-        >
-          <Image
-            src="/Instagram_Glyph_Gradient_RGB.png"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
-            alt="Instagram"
-          />
-        </a>
 
-        <a
-          className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-          href="https://opensea.io/"
-        >
-          <Image
-            src="/Opensea-Logomark-Blue.png"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
-            alt="Opensea"
-          />
+      {/* Right - Social Icons (desktop only) */}
+      <div className="hidden md:flex space-x-4 justify-end items-center">
+       
+
+        <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
+          <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" width={32} height={32} />
         </a>
       </div>
     </header>

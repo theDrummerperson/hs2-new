@@ -30,32 +30,26 @@ var styles = {
   bmMenuWrap: {
     position: "fixed",
     height: "100%",
-    width: "275px",
+    width: "100vw",
+    maxWidth: "275px",
   },
   bmMenu: {
-    background: "#373a47",
+    background: "#8A0303",
     padding: "1.5em .75em 0",
     fontSize: "1.15em",
-    width: "100%",
+    color: "#F9F6F1",
   },
   bmMorphShape: {
-    fill: "#373a47",
-    width: "100%",
-    right: "0",
+    fill: "#8A0303",
   },
-  bmItemList: {
-    color: "#b8b7ad",
-    padding: "0.8em",
-    width: "100%",
-    left: "0",
-  },
-  bmItem: {
-    display: "flex",
-  },
+  
+ 
+  
   bmOverlay: {
     background: "rgba(0, 0, 0, 0.3)",
   },
 };
+
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -81,119 +75,45 @@ export default function Home() {
   return (
     <div className="">
       <Head>
-        <title>Healthcare Heroes</title>
+        <title>Holland Street</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div id="outer-container" className="">
         <Header />
+   
         <Menu
-          pageWrapId={"page-wrap"}
-          outerContainerId={"outer-container"}
-          right
-          styles={styles}
-          burgerButtonClassName={"bg-button-class"}
-          isOpen={menuOpen}
-          onStateChange={(state) => handleStateChange(state)}
-          // onClose={() => closeMenu()}
-        >
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#one"
-            onClick={() => closeMenu()}
-          >
-            one
-          </a>
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#two"
-            onClick={() => closeMenu()}
-          >
-            two
-          </a>
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#three"
-            onClick={() => closeMenu()}
-          >
-            three
-          </a>
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#four"
-            onClick={() => closeMenu()}
-          >
-            four
-          </a>
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#five"
-            onClick={() => closeMenu()}
-          >
-            five
-          </a>
-          <a
-            className="menu-item text-2xl p-4 hover:text-red-400 transition duration-150"
-            href="#six"
-            onClick={() => closeMenu()}
-          >
-            six
-          </a>
-          <div className="flex space-x-4 mt-4">
-            <a
-              className="menu-item relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-              href="https://discord.com/"
-            >
-              <Image
-                src="/Discord-Logo-Color.png"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                alt="Discord"
-              />
-            </a>
-            <a
-              className="menu-item relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-              href="https://twitter.com/"
-            >
-              <Image
-                src="/Twitter social icons - circle - blue.png"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                alt="Twitter"
-              />
-            </a>
-            <a
-              className="menu-item relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-              href="https://www.instagram.com/"
-            >
-              <Image
-                src="/Instagram_Glyph_Gradient_RGB.png"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                alt="Instagram"
-              />
-            </a>
+  pageWrapId={"page-wrap"}
+  outerContainerId={"outer-container"}
+  right
+  styles={styles}
+  burgerButtonClassName={"bg-button-class"}
+  itemListClassName="menu-item-list"
+  isOpen={menuOpen}
+  onStateChange={handleStateChange}
+>
+  <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
+  <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
+  <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
 
-            <a
-              className="menu-item relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-              href="https://opensea.io/"
-            >
-              <Image
-                src="/Opensea-Logomark-Blue.png"
-                layout="fill"
-                objectFit="contain"
-                objectPosition="center"
-                alt="Opensea"
-              />
-            </a>
-          </div>
-        </Menu>
+  <a
+    className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
+    href="https://www.instagram.com/holland.street"
+  >
+    <Image
+      src="/Instagram_Glyph_Gradient_RGB.png"
+      layout="fill"
+      objectFit="contain"
+      objectPosition="center"
+      alt="Instagram"
+    />
+  </a>
+</Menu>
+
+
 
         <main id="page-wrap" className="font-sans bg-gray-700 text-white ">
-          <section className="section bg-blue-500" id="one">
+          <section className="section bg-blue-500" id="about">
             <h1 className="text-3xl pb-8">Nice curves</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, ipsum
@@ -203,7 +123,7 @@ export default function Home() {
             </p>
             <div className="curve"></div>
           </section>
-          <section className="section bubble" id="two">
+          <section className="section bubble" id="projects">
             <h1 className="text-3xl pb-8">Nice curves</h1>
             <p>
               Odit, nam nemo tempora explicabo dolores asperiores error iste
@@ -225,7 +145,7 @@ export default function Home() {
               </svg>
             </div>
           </section>
-          <section className="section bg-red-500" id="three">
+          <section className="section bg-red-500" id="contact">
             <h1 className="text-3xl pb-8">Nice curves</h1>
             <p>
               Alias debitis dolore eos, maiores voluptates quis, quod quos
