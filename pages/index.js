@@ -35,20 +35,16 @@ var styles = {
     maxWidth: "275px",
   },
   bmMenu: {
-    background: "#8A0303",
+    background: "#222222",
     padding: "1.5em .75em 0",
-    fontSize: "1.15em",
+    fontSize: "3.5em",
     color: "#F9F6F1",
   },
-  bmMorphShape: {
-    fill: "#8A0303",
-  },
-  
  
-  
   bmOverlay: {
     background: "rgba(0, 0, 0, 0.3)",
   },
+
 };
 
 
