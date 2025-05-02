@@ -44,7 +44,7 @@ var styles = {
   },
  
   bmOverlay: {
-    background: "rgba(0, 0, 0, 8.5)",
+    background: "rgba(0, 0, 0, 0.3)",
   },
 
 };
@@ -111,17 +111,29 @@ export default function Home() {
 
 
 
-        <main id="page-wrap" className="font-sans bg-gray-700 text-white ">
-          <section className="section bg-blue-500" id="about">
-            <h1 className="text-3xl pb-8">Nice curves</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, ipsum
-              dolore obcaecati sapiente laboriosam cupiditate quo eligendi velit
-              deserunt beatae fugit recusandae atque dolorum, odit consectetur
-              corrupti voluptates pariatur dicta.
-            </p>
-            <div className="curve"></div>
-          </section>
+        <main id="page-wrap" className="font-sans text-charcoal ">
+       
+        <section id="about" className="relative text-[#222] min-h-[800px]">
+  {/* Background image */}
+  <div className="absolute inset-0 z-0 bg-hero bg-contain bg-no-repeat bg-center"></div>
+
+  {/* Text Content in Front, Bottom-Left */}
+  <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-lg p-6 max-w-md">
+    <h1 className="text-3xl font-bold mb-4">  We are a living study space, an art lab, and a home for radical imagination.</h1>
+    <p>
+   
+We create digital stories, live gatherings, and communal rituals that center liberation, not consumption — building a world where thought, art, and resistance are a way of life.
+Rooted in Black freedom, Indigenous sovereignty, and collective creation, Holland Street operates as both a cultural studio and a public house for visionaries, refugees, and builders of new worlds.
+We don’t sell belonging — we cultivate becoming.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
           <section className="section bubble" id="projects">
             <h1 className="text-3xl pb-8">Nice curves</h1>
             <p>

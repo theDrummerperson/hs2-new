@@ -14,14 +14,18 @@ export default function Header() {
     >
       {/* Logo */}
       <div className="logo-wrapper flex items-center justify-start h-[120px]">
-  <Image
-    src="/H-STRLmain.png"
-    alt="Logo"
-    width={340}
-    height={200}
-    className="object-contain"
-    priority
-  />
+  <Link href="#about" scroll={true}>
+    <a>
+      <Image
+        src="/H-STRLmain.png"
+        alt="Logo"
+        width={340}
+        height={200}
+        className="object-contain"
+        priority
+      />
+    </a>
+  </Link>
 </div>
 
 
