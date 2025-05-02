@@ -30,20 +30,17 @@
   @layer utilities {
     .logo-wrapper {
       @apply flex items-center justify-start;
-      height: 120px;
-      padding: 0 1.5rem;
-      overflow: hidden;
+      max-height: 120px; /* or whatever fits your header */
+      overflow: visible; /* ✅ allow overflow */
     }
   
     .logo-image {
-      transform: scale(2);
-      transform-origin: left center;
-      object-fit: contain;
-      object-position: left;
-      height: 100%;
+      height: auto;
+      max-height: 100%;
       width: auto;
-      transition: transform 0.3s ease-in-out;
     }
+  }
+  
   
     /* 🔁 Responsive adjustments */
     @media (max-width: 768px) {
@@ -174,7 +171,7 @@
   .layer2 {
     background-image: url("/wave-haikei.svg");
   }
-}
+
 
 
 
