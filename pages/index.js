@@ -118,15 +118,33 @@ export default function Home() {
   <div className="absolute inset-0 z-0 bg-hero bg-contain bg-no-repeat bg-center"></div>
 
   {/* Text Content in Front, Bottom-Left */}
-  <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-lg p-6 max-w-md">
-    <h1 className="text-3xl font-bold mb-4">  We are a living study space, an art lab, and a home for radical imagination.</h1>
-    <p>
-   
-We create digital stories, live gatherings, and communal rituals that center liberation, not consumption — building a world where thought, art, and resistance are a way of life.
-Rooted in Black freedom, Indigenous sovereignty, and collective creation, Holland Street operates as both a cultural studio and a public house for visionaries, refugees, and builders of new worlds.
-We don’t sell belonging — we cultivate becoming.
-    </p>
-  </div>
+  
+  <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-xl shadow-lg p-6 max-w-md space-y-5 leading-relaxed">
+  <h1 className="text-3xl font-bold text-[#111]">
+    A home for radical imagination.
+  </h1>
+
+  <p className="text-sm text-[#444]">
+    We craft <span className="font-semibold text-[#8A0303]">digital stories</span>, 
+    <span className="font-semibold text-[#8A0303]"> live gatherings</span>, and 
+    <span className="font-semibold text-[#8A0303]"> communal rituals</span> that center liberation—not consumption.
+  </p>
+
+  <p className="text-sm text-[#444]">
+    Rooted in <span className="italic">freedom</span> and 
+    <span className="italic"> sovereignty</span>, Holland Street is both a cultural studio and a public house 
+    for visionaries, refugees, and builders of new worlds.
+  </p>
+
+  <p className="text-md font-bold text-[#8A0303] tracking-wide uppercase">
+    We don’t sell belonging —
+    <br className="sm:hidden" />
+    we cultivate becoming.
+  </p>
+</div>
+
+
+
 </section>
 
 
@@ -137,10 +155,7 @@ We don’t sell belonging — we cultivate becoming.
           <section className="section bubble" id="projects">
             <h1 className="text-3xl pb-8">Nice curves</h1>
             <p>
-              Odit, nam nemo tempora explicabo dolores asperiores error iste
-              dolor amet fuga officia! Natus, quam porro. Nobis rerum incidunt
-              fugiat suscipit odit dicta a tempore sapiente aliquam sed?
-              Consectetur, sed.
+            Holland Street is a living commons where art, study, and resistance shape how we live, not what we buy. We partner with organizations and communities to create transformative experiences—salons, workshops, and gatherings—that honor imagination, dignity, and collective liberation.
             </p>
             <div className="wave">
               <svg
