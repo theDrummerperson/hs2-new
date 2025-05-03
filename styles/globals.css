@@ -30,8 +30,8 @@
 /* === BURGER BASE === */
 .burger .bar {
   display: block;
-  width: 28px;
-  height: 3px;
+  width: 38px;
+  height: 4px;
   background-color: #8A0303;
   margin: 5px 0;
   border-radius: 2px;

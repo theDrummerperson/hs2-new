@@ -47,6 +47,16 @@ export default function Footer() {
           </p>
         </address>
       </div>
+
+      {/* Back to Top */}
+      <div className="mt-10 text-center">
+        <a
+          href="#top"
+          className="text-sm text-[#8A0303] font-semibold tracking-wide hover:underline transition-all duration-200"
+        >
+          ↑ Back to Top
+        </a>
+      </div>
     </footer>
   );
 }
