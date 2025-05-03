@@ -24,26 +24,40 @@
 
 /* === GLOBAL OVERRIDES FOR REACT-BURGER-MENU === */
 
-/* Cross button container */
-.bm-cross-button {
-  width: 62px !important;
-  height: 62px !important;
-  top: 80px !important;
-  right: 80px !important;
-  position: absolute !important; /* Ensures positioning applies */
+
+
+
+/* === BURGER BASE === */
+.burger .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #8A0303;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-/* Cross lines */
-.bm-cross {
-  height: 82px !important;
-  width: 8px !important;
-  background-color: #8A0303 !important;
+/* Top bar animates into first stroke of X */
+.burger .open-top {
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
-/* Second line of X */
-.bm-cross:nth-child(2) {
-  transform: rotate(-45deg) !important;
+/* Middle bar disappears */
+.burger .open-middle {
+  opacity: 0;
+  transform: scaleX(0);
 }
+
+/* Bottom bar animates into second stroke of X */
+.burger .open-bottom {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+
+
+
 
 /* Responsive override */
 @media (max-width: 768px) {

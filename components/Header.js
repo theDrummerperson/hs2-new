@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
+import BurgerButton from './BurgerButton';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Header() {
 
   const styles = {
     bmBurgerButton: {
-      display: "none", // Hides default react-burger-menu button
+      display: "none",
     },
     bmBurgerBars: {
       background: "#373a47",
@@ -30,8 +31,6 @@ export default function Header() {
       height: "32px",
       width: "32px",
     },
-
-
     bmMenuWrap: {
       position: "fixed",
       height: "100%",
@@ -52,36 +51,26 @@ export default function Header() {
 
   return (
     <>
-<header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8">
+      {/* ✅ Always-visible burger button */}
+      <div className="fixed top-6 right-6 z-[9999] md:hidden">
+        <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+      </div>
 
+      {/* Site Header */}
+      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8">
         {/* Logo */}
         <div className="logo-wrapper flex items-center justify-start h-[80px] -ml-4 sm:-ml-6">
-  <Link href="#about" scroll={true}>
-    <a className="relative h-[60px] w-[200px] sm:w-[240px] md:w-[280px] lg:w-[340px]">
-      <Image
-        src="/H-STRLmain.png"
-        alt="Logo"
-        layout="fill"
-        objectFit="contain"
-        priority
-      />
-    </a>
-  </Link>
-</div>
-
-        {/* Burger Button (mobile only) */}
-        <div className="flex justify-end md:hidden">
-          <button
-            className="w-10 h-10"
-            onClick={() => setMenuOpen(true)}
-          >
-            <Image
-              src="/bento-icon.svg" // Replace with your actual icon path
-              alt="Menu"
-              width={40}
-              height={40}
-            />
-          </button>
+          <Link href="#about" scroll={true}>
+            <a className="relative h-[60px] w-[200px] sm:w-[240px] md:w-[280px] lg:w-[340px]">
+              <Image
+                src="/H-STRLmain.png"
+                alt="Logo"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </a>
+          </Link>
         </div>
 
         {/* Nav (desktop only) */}
@@ -99,34 +88,33 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Slide Menu */}
       <div className="block md:hidden">
-      <Menu
-  pageWrapId={"page-wrap"}
-  outerContainerId={"outer-container"}
-  right
-  styles={styles}
-  isOpen={menuOpen}
-  onStateChange={handleStateChange}
-  itemListClassName="menu-item-list"  // ← add this line
->
-  <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
-  <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
-  <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
-  <a
-    className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-    href="https://www.instagram.com/holland.street"
-  >
-    <Image
-      src="/Instagram_Glyph_Gradient_RGB.png"
-      layout="fill"
-      objectFit="contain"
-      objectPosition="center"
-      alt="Instagram"
-    />
-  </a>
-</Menu>
-
+        <Menu
+          pageWrapId={"page-wrap"}
+          outerContainerId={"outer-container"}
+          right
+          styles={styles}
+          isOpen={menuOpen}
+          onStateChange={handleStateChange}
+          itemListClassName="menu-item-list"
+        >
+          <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
+          <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
+          <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
+          <a
+            className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
+            href="https://www.instagram.com/holland.street"
+          >
+            <Image
+              src="/Instagram_Glyph_Gradient_RGB.png"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="center"
+              alt="Instagram"
+            />
+          </a>
+        </Menu>
       </div>
     </>
   );
