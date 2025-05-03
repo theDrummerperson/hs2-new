@@ -5,3 +5,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .menu-item-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    gap: 1.5rem;
+  }
+}
+
+

@@ -9,24 +9,25 @@ export default function Header() {
 
   return (
     <header
-      className="fixed w-full top-0 z-50 grid grid-cols-3 shadow-md bg-[#F9F6F1] bg-cover bg-center 
-                 px-12 py-11 xl:px-8 items-center text-[#222222]"
-    >
+    className="fixed w-full top-0 z-50 flex flex-col items-center justify-center md:grid md:grid-cols-3 shadow-md bg-[#F9F6F1] bg-cover bg-center 
+               px-6 py-6 md:px-12 md:py-11 text-[#222222]"
+  >
+  
       {/* Logo */}
-      <div className="logo-wrapper flex items-center justify-start h-[120px]">
+      <div className="logo-wrapper flex items-center justify-center md:justify-start h-[120px]">
   <Link href="#about" scroll={true}>
-    <a>
+    <a className="relative h-[100px] w-[240px] sm:w-[280px] md:w-[320px] lg:w-[380px]">
       <Image
         src="/H-STRLmain.png"
         alt="Logo"
-        width={340}
-        height={200}
-        className="object-contain"
+        layout="fill"
+        objectFit="contain"
         priority
       />
     </a>
   </Link>
 </div>
+
 
 
       {/* Nav */}

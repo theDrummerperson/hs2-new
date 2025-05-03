@@ -81,33 +81,35 @@ export default function Home() {
       <div id="outer-container" className="">
         <Header />
    
-        <Menu
-  pageWrapId={"page-wrap"}
-  outerContainerId={"outer-container"}
-  right
-  styles={styles}
-  burgerButtonClassName={"bg-button-class"}
-  itemListClassName="menu-item-list"
-  isOpen={menuOpen}
-  onStateChange={handleStateChange}
->
-  <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
-  <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
-  <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
-
-  <a
-    className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-    href="https://www.instagram.com/holland.street"
+{/* MOBILE MENU: visible on small screens only */}
+<div className="block md:hidden">
+  <Menu
+    pageWrapId={"page-wrap"}
+    outerContainerId={"outer-container"}
+    right
+    styles={styles}
+    burgerButtonClassName={"bg-button-class"}
+    itemListClassName="menu-item-list"
+    isOpen={menuOpen}
+    onStateChange={handleStateChange}
   >
-    <Image
-      src="/Instagram_Glyph_Gradient_RGB.png"
-      layout="fill"
-      objectFit="contain"
-      objectPosition="center"
-      alt="Instagram"
-    />
-  </a>
-</Menu>
+    <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
+    <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
+    <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
+    <a
+      className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
+      href="https://www.instagram.com/holland.street"
+    >
+      <Image
+        src="/Instagram_Glyph_Gradient_RGB.png"
+        layout="fill"
+        objectFit="contain"
+        objectPosition="center"
+        alt="Instagram"
+      />
+    </a>
+  </Menu>
+</div>
 
 
 
