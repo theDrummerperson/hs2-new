@@ -102,30 +102,32 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div className="block md:hidden">
-        <Menu
-          pageWrapId={"page-wrap"}
-          outerContainerId={"outer-container"}
-          right
-          styles={styles}
-          isOpen={menuOpen}
-          onStateChange={handleStateChange}
-        >
-          <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
-          <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
-          <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
-          <a
-            className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-            href="https://www.instagram.com/holland.street"
-          >
-            <Image
-              src="/Instagram_Glyph_Gradient_RGB.png"
-              layout="fill"
-              objectFit="contain"
-              objectPosition="center"
-              alt="Instagram"
-            />
-          </a>
-        </Menu>
+      <Menu
+  pageWrapId={"page-wrap"}
+  outerContainerId={"outer-container"}
+  right
+  styles={styles}
+  isOpen={menuOpen}
+  onStateChange={handleStateChange}
+  itemListClassName="menu-item-list"  // ← add this line
+>
+  <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
+  <a href="#projects" onClick={closeMenu} className="menu-item-link">PROJECTS</a>
+  <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
+  <a
+    className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
+    href="https://www.instagram.com/holland.street"
+  >
+    <Image
+      src="/Instagram_Glyph_Gradient_RGB.png"
+      layout="fill"
+      objectFit="contain"
+      objectPosition="center"
+      alt="Instagram"
+    />
+  </a>
+</Menu>
+
       </div>
     </>
   );
