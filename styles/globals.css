@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&family=Special+Elite&display=swap');
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* === COMPONENT-SCOPED UTILITIES === */
 @layer components {
   html {
     scroll-behavior: smooth;
@@ -21,3 +21,43 @@
     gap: 1.5rem;
   }
 }
+
+/* === GLOBAL OVERRIDES FOR REACT-BURGER-MENU === */
+
+/* Cross button container */
+.bm-cross-button {
+  width: 62px !important;
+  height: 62px !important;
+  top: 80px !important;
+  right: 80px !important;
+  position: absolute !important; /* Ensures positioning applies */
+}
+
+/* Cross lines */
+.bm-cross {
+  height: 82px !important;
+  width: 8px !important;
+  background-color: #8A0303 !important;
+}
+
+/* Second line of X */
+.bm-cross:nth-child(2) {
+  transform: rotate(-45deg) !important;
+}
+
+/* Responsive override */
+@media (max-width: 768px) {
+  .bm-cross-button {
+    width: 36px !important;
+    height: 36px !important;
+    top: 20px !important;
+    right: 20px !important;
+  }
+}
+
+/* === TAILWIND SAFELIST TRICK (optional for purge) === */
+.hidden {
+  display: none;
+}
+.hidden.bm-cross-button,
+.hidden.bm-cross {}

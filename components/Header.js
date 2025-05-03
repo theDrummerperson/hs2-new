@@ -27,12 +27,11 @@ export default function Header() {
       background: "#a90000",
     },
     bmCrossButton: {
-      height: "24px",
-      width: "24px",
+      height: "32px",
+      width: "32px",
     },
-    bmCross: {
-      background: "#bdc3c7",
-    },
+
+
     bmMenuWrap: {
       position: "fixed",
       height: "100%",
