@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
-import ImageCarousel from "../components/ImageCarousel";
+
 
 export default function Home() {
   const router = useRouter();
@@ -60,9 +60,7 @@ export default function Home() {
             </div>
 
             {/* Image Carousel with Captions & Links */}
-            <div className="mb-16 shadow-2xl rounded-2xl overflow-hidden border border-gray-200 bg-white">
-              <ImageCarousel />
-            </div>
+           
 
             <div className="max-w-3xl mx-auto text-center text-[#333] text-base sm:text-lg leading-relaxed px-4">
               <p className="mb-6">

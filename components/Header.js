@@ -50,25 +50,23 @@ export default function Header() {
       <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-4 md:px-12 py-4 md:py-8">
         {/* Logo */}
         <div className="flex items-center justify-start min-h-[80px]">
-          <Link href="/#about" scroll={true}>
-            <a className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
-              <Image
-                src="/logo.svg"
-                alt="Logo"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </a>
-          </Link>
+        <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
+  <Image
+    src="/logo.svg"
+    alt="Logo"
+    layout="fill"
+    objectFit="contain"
+    priority
+  />
+</Link>
+
         </div>
 
         {/* Nav (desktop only) */}
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
-          <Link href="#about"><a className="nav-link">ABOUT</a></Link>
-          <Link href="#projects"><a className="nav-link">PROJECTS</a></Link>
-          <Link href="#contact"><a className="nav-link">CONTACT</a></Link>
-        </nav>
+        <Link href="#about" className="nav-link">ABOUT</Link>
+<Link href="#projects" className="nav-link">PROJECTS</Link>
+<Link href="#contact" className="nav-link">CONTACT</Link></nav>
 
         {/* Social Icons (desktop only) */}
         <div className="hidden md:flex space-x-4 justify-end items-center">
@@ -108,9 +106,16 @@ export default function Header() {
               >
                 ← Back
               </button>
-              <Link href="/tv-repairman"><a onClick={closeMenu} className="menu-item-link">TV-Repairman</a></Link>
-              <Link href="/kagoma"><a onClick={closeMenu} className="menu-item-link">Kagoma</a></Link>
-              <Link href="/tinystage"><a onClick={closeMenu} className="menu-item-link">TinyStage</a></Link>
+              <Link href="/tv-repairman" className="menu-item-link" onClick={closeMenu}>
+  TV-Repairman
+</Link>
+<Link href="/kagoma" className="menu-item-link" onClick={closeMenu}>
+  Kagoma
+</Link>
+<Link href="/tinystage" className="menu-item-link" onClick={closeMenu}>
+  TinyStage
+</Link>
+
             </>
           )}
 

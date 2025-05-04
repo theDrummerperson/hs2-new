@@ -2,58 +2,56 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer
-      role="contentinfo"
-      className="w-full border-t border-[#F9F6F1] bg-[#222222] text-[#F9F6F1] dark:bg-[##212122] dark:text-[#f3f3f3] px-6 py-12"
-    >
+    <footer className="w-full border-t border-[#F9F6F1] bg-[#222] text-[#F9F6F1] px-6 py-2">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         {/* Logo */}
         <div className="flex justify-center md:justify-start w-full md:w-1/2">
           <Image
             src="/logo2.png"
             alt="Holland Street Logo"
-            width={240}
-            height={120}
+            width={160}
+            height={80}
             className="object-contain"
             priority
           />
         </div>
 
         {/* Contact Info */}
-        <address className="not-italic w-full md:w-1/2 space-y-2 text-sm font-medium tracking-wide text-center md:text-left">
-          <p>
-            <a
-              href="https://www.instagram.com/holland.street"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow us on Instagram"
-              className="hover:text-[#8A0303] transition-colors duration-150"
-            >
-              137 East 18th Street,
-              Erie, PA 16503
-            </a>
-          </p>
-          <p>
-            <a href="tel:8142326103" className="hover:underline">
-              (814) 232-6103
-            </a>
-          </p>
-          <p>
-            <a
-              href="mailto:hollandstreetrd@gmail.com"
-              className="hover:text-[#8A0303] transition-colors duration-150"
-            >
-              hollandstreet@gmail.com
-            </a>
-          </p>
-        </address>
+        <address className="not-italic w-full md:w-1/2 flex flex-col items-center justify-end space-y-4 text-sm font-medium tracking-wide pt-8 pb-4">
+  <a
+    href="https://www.instagram.com/holland.street"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="relative h-10 w-10 hover:opacity-80 transition"
+  >
+    <Image
+      src="/Instagram_Glyph_Gradient_RGB.png"
+      alt="Instagram Icon"
+      layout="fill"
+      objectFit="contain"
+    />
+  </a>
+
+  <p className="text-center">
+    137 East 18th Street,<br />Erie, PA 16503
+  </p>
+
+  <p>
+    <a href="tel:8142326103" className="hover:underline">
+      (814) 232-6103
+    </a>
+  </p>
+</address>
+
+
       </div>
 
       {/* Back to Top */}
       <div className="mt-10 text-center">
         <a
           href="#top"
-          className="text-sm text-[#8A0303] font-semibold tracking-wide hover:underline transition-all duration-200"
+          className="text-sm font-semibold tracking-wide text-[#8A0303] hover:underline transition duration-200"
         >
           ↑ Back to Top
         </a>
