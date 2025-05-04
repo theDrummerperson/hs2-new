@@ -59,18 +59,21 @@ export default function Header() {
       {/* Site Header */}
       <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8">
         {/* Logo */}
-        <div className="logo-wrapper flex items-center justify-start h-[80px] -ml-4 sm:-ml-6">
-          <Link href="#about" scroll={true}>
-            <a className="relative h-[60px] w-[200px] sm:w-[240px] md:w-[280px] lg:w-[340px]">
-              <Image
-                src="/H-STRLmain.png"
-                alt="Logo"
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </a>
-          </Link>
+        <div className="logo-wrapper flex items-center justify-start min-h-[80px]">
+        <Link href="#about" scroll={true}>
+  <a className="logo-wrapper">
+    <div className="custom-logo">
+      <Image
+        src="/H-STRLmain.png"
+        alt="Logo"
+        layout="fill"
+        objectFit="contain"
+        priority
+      />
+    </div>
+  </a>
+</Link>
+
         </div>
 
         {/* Nav (desktop only) */}

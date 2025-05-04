@@ -4,12 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === GLOBAL HTML OVERRIDES === */
+html {
+  scroll-behavior: smooth;
+}
+
 /* === COMPONENT-SCOPED UTILITIES === */
 @layer components {
-  html {
-    scroll-behavior: smooth;
-  }
-
   .menu-item-list {
     display: flex;
     flex-direction: column;
@@ -20,12 +21,24 @@
     width: 100%;
     gap: 1.5rem;
   }
+
+  .logo-wrapper {
+    padding-left: 0rem;
+  }
+
+  .logo-wrapper .custom-logo {
+    width: 300px;
+    height: 160px;
+    position: relative;
+    filter: brightness(0.95) contrast(1.1);
+    transition: all 0.3s ease;
+  }
+
+  .logo-wrapper .custom-logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
 }
-
-/* === GLOBAL OVERRIDES FOR REACT-BURGER-MENU === */
-
-
-
 
 /* === BURGER BASE === */
 .burger .bar {
@@ -39,25 +52,18 @@
   transform-origin: center;
 }
 
-/* Top bar animates into first stroke of X */
 .burger .open-top {
   transform: rotate(45deg) translate(4px, 4px);
 }
 
-/* Middle bar disappears */
 .burger .open-middle {
   opacity: 0;
   transform: scaleX(0);
 }
 
-/* Bottom bar animates into second stroke of X */
 .burger .open-bottom {
   transform: rotate(-45deg) translate(4px, -4px);
 }
-
-
-
-
 
 /* Responsive override */
 @media (max-width: 768px) {
@@ -69,9 +75,7 @@
   }
 }
 
-/* === TAILWIND SAFELIST TRICK (optional for purge) === */
+/* TAILWIND SAFELIST HACK */
 .hidden {
   display: none;
 }
-.hidden.bm-cross-button,
-.hidden.bm-cross {}
