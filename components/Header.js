@@ -47,21 +47,21 @@ export default function Header() {
       </div>
 
       <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8">
-        <div className="logo-wrapper flex items-center justify-start min-h-[80px]">
-          <Link href="/#about" scroll={true}>
-            <a className="logo-wrapper">
-              <div className="custom-logo">
-                <Image
-                  src="/logo.svg"
-                  alt="Logo"
-                  layout="fill"
-                  objectFit="contain"
-                  priority
-                />
-              </div>
-            </a>
-          </Link>
-        </div>
+      <div className="flex items-center justify-start min-h-[80px] pl-4 md:pl-0">
+  <Link href="/#about" scroll={true}>
+    <a>
+      <div className="custom-logo">
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          layout="fill"
+          objectFit="contain"
+          priority
+        />
+      </div>
+    </a>
+  </Link>
+</div>
 
         {/* Nav (desktop only) */}
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
