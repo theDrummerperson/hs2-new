@@ -1,0 +1,66 @@
+/* styles/carousel.css */
+
+.custom-gallery .image-gallery-thumbnail {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .custom-gallery .image-gallery-thumbnail:hover {
+    border-color: #8A0303;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(138, 3, 3, 0.3);
+  }
+  
+  .custom-gallery .image-gallery-thumbnail.active {
+    border-color: #8A0303;
+    box-shadow: 0 0 0 3px rgba(138, 3, 3, 0.3);
+  }
+  
+  .custom-gallery .image-gallery-thumbnails-container {
+    padding: 10px 0;
+    gap: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+  /* Carousel Enhancements */
+.image-gallery-slide-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  .image-gallery-content {
+    background-color: #fff;
+    border-radius: 1rem;
+  }
+  
+  /* Caption transition already handled inline in JSX */
+  .custom-slide {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .custom-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    color: #fff;
+    padding: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(100%);
+    opacity: 0;
+    font-family: "Special Elite", serif;
+  }
+  
+  .custom-slide:hover .custom-caption {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
