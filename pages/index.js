@@ -74,7 +74,12 @@ export default function Home() {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="mb-12"
     >
-      <GalleryLightbox />
+<div className="relative isolate w-full bg-[#8A0303] py-12 shadow-2xl border-y-4 border-[#600202]/30">
+  <div className="max-w-6xl mx-auto px-4">
+    <GalleryLightbox />
+  </div>
+</div>
+
     </motion.div>
 
     {/* Description Text */}
