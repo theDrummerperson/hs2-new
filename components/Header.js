@@ -29,6 +29,7 @@ export default function Header() {
       top: 0,
       zIndex: 9999,
     },
+    
     bmMenu: {
       background: "#F9F6F1",
       padding: "1.5em .75em 0",
@@ -46,22 +47,21 @@ export default function Header() {
         <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
       </div>
 
-      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8">
-      <div className="flex items-center justify-start min-h-[80px] pl-4 md:pl-0">
-  <Link href="/#about" scroll={true}>
-    <a>
-      <div className="custom-logo">
-        <Image
-          src="/logo.svg"
-          alt="Logo"
-          layout="fill"
-          objectFit="contain"
-          priority
-        />
-      </div>
-    </a>
-  </Link>
-</div>
+      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-4 md:px-12 py-4 md:py-8">
+        {/* Logo */}
+        <div className="flex items-center justify-start min-h-[80px]">
+          <Link href="/#about" scroll={true}>
+            <a className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
+              <Image
+                src="/logo.svg"
+                alt="Logo"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
+            </a>
+          </Link>
+        </div>
 
         {/* Nav (desktop only) */}
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
@@ -70,10 +70,10 @@ export default function Header() {
           <Link href="#contact"><a className="nav-link">CONTACT</a></Link>
         </nav>
 
-        {/* Desktop Social Icons */}
+        {/* Social Icons (desktop only) */}
         <div className="hidden md:flex space-x-4 justify-end items-center">
           <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
-            <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" width={32} height={32} />
+            <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
           </a>
         </div>
       </header>

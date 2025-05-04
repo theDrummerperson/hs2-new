@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === GLOBAL HTML OVERRIDES === */
+/* === GLOBAL HTML BEHAVIOR === */
 html {
   scroll-behavior: smooth;
 }
@@ -12,25 +12,25 @@ html {
 @layer components {
   /* === LOGO === */
   .logo-wrapper {
-    padding-left: 0rem;
+    padding-left: 0;
   }
 
-  .logo-wrapper .custom-logo {
+  .custom-logo {
     width: 300px;
     height: 160px;
     position: relative;
     filter: brightness(0.95) contrast(1.1);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  .logo-wrapper .custom-logo:hover {
+  .custom-logo:hover {
     transform: scale(1.05);
     opacity: 0.9;
   }
 
-  /* === DESKTOP NAVIGATION LINKS === */
+  /* === DESKTOP NAVIGATION === */
   .nav-link {
-    @apply relative px-4 py-2 transition-colors duration-300;
+    @apply relative px-4 py-2 text-sm font-semibold tracking-wide transition-colors duration-300;
   }
 
   .nav-link:hover {
@@ -39,9 +39,9 @@ html {
 
   .nav-link::after {
     content: "";
-    @apply absolute left-1/2 bottom-0 w-0 h-[2px] bg-[#8A0303];
-    transition: width 0.3s ease, left 0.3s ease;
+    @apply absolute bottom-0 left-1/2 w-0 h-[2px] bg-[#8A0303];
     transform: translateX(-50%);
+    transition: width 0.3s ease, left 0.3s ease;
   }
 
   .nav-link:hover::after {
@@ -53,31 +53,24 @@ html {
     @apply font-bold text-[#222];
   }
 
-  /* === DROPDOWN MENU (DESKTOP) === */
+  /* === DROPDOWN (if needed) === */
   .nav-group:hover .nav-dropdown,
   .nav-group:focus-within .nav-dropdown {
     @apply opacity-100 visible pointer-events-auto translate-y-0;
   }
 
   .nav-dropdown {
+    @apply absolute top-full left-0 mt-2 w-44 bg-white text-sm rounded-lg shadow-lg;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(10px);
     transition: all 0.3s ease;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
-    min-width: 180px;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     z-index: 50;
   }
 
   .nav-dropdown a {
-    @apply block px-4 py-2 text-[#222] text-sm font-medium transition-colors duration-200;
+    @apply block px-4 py-2 text-[#222] font-medium transition-colors duration-200;
   }
 
   .nav-dropdown a:hover {
@@ -85,32 +78,33 @@ html {
   }
 }
 
-/* === MOBILE MENU STYLES === */
+/* === MOBILE MENU STYLES (react-burger-menu) === */
 .menu-item-list {
   @apply flex flex-col items-center justify-center text-center w-full h-full gap-4;
 }
 
-.menu-item-list a {
-  opacity: 1 !important;
-  transform: none !important;
-  color: #8A0303 !important;
+.menu-item-link {
+  @apply relative text-2xl tracking-wide text-[#8A0303] transition duration-200;
 }
 
-/* Burger menu close button */
+.menu-item-link:hover {
+  @apply text-[#222];
+}
+
+/* Close button (X icon) positioning */
 .bm-cross-button {
   position: absolute !important;
   top: 2rem !important;
   right: 2rem !important;
-  width: 4rem !important;
-  height: 4rem !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
   z-index: 9999 !important;
-  cursor: pointer;
 }
 
 .bm-cross {
   background-color: #8A0303 !important;
-  height: 3px !important;
-  width: 30px !important;
+  height: 4px !important;
+  width: 28px !important;
 }
 
 /* Burger icon lines */
@@ -138,7 +132,7 @@ html {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* === TAILWIND SAFELIST OVERRIDE === */
+/* === SAFELIST OVERRIDE === */
 .hidden {
   display: none;
 }
