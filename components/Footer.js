@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="w-full border-t border-[#F9F6F1] bg-[#222222] text-[#F9F6F1] dark:bg-[#111] dark:text-[#f3f3f3] px-6 py-12"
+      className="w-full border-t border-[#F9F6F1] bg-[#222222] text-[#F9F6F1] dark:bg-[##212122] dark:text-[#f3f3f3] px-6 py-12"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         {/* Logo */}
@@ -40,7 +40,7 @@ export default function Footer() {
           </p>
           <p>
             <a
-              href="mailto:ilyasabukar@gmail.com"
+              href="mailto:hollandstreetrd@gmail.com"
               className="hover:text-[#8A0303] transition-colors duration-150"
             >
               hollandstreet@gmail.com
