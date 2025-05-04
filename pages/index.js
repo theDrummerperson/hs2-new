@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import GalleryLightbox from "../components/GalleryLightbox";
 import { motion } from "framer-motion";
+import ContactForm from "../components/ContactForm";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -113,10 +114,9 @@ export default function Home() {
 
 
         {/* Contact Section */}
-        <section id="contact" className="min-h-screen px-6 py-20">
-          <h1 className="text-4xl font-bold mb-4">Contact</h1>
-          <p>Let’s connect. Here’s your contact information.</p>
-        </section>
+        <section id="contact" className="min-h-screen px-6 py-20 bg-[#F9F6F1]">
+  <ContactForm />
+</section>
       </main>
 
       <Footer />
