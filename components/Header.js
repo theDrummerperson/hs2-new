@@ -37,17 +37,23 @@ export default function Header() {
       width: "100vw",
       left: 0,
       top: 0,
+      zIndex: 9999,
+      overflow: "visible", // ✅ Add this if not present
     },
+    
     bmMenu: {
       background: "#F9F6F1",
       padding: "1.5em .75em 0",
       fontSize: "2.5em",
       color: "#8A0303",
+      zIndex: 1100, // Ensure this is still layered above page content
     },
     bmOverlay: {
       background: "rgba(0, 0, 0, 0.3)",
+      zIndex: 900,
     },
   };
+  
 
   return (
     <>
