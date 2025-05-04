@@ -1,15 +1,16 @@
+
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import GalleryLightbox from "../components/GalleryLightbox";
+import TestImage from "../components/TestImage";
 import { useRouter } from "next/router";
-
 
 export default function Home() {
   const router = useRouter();
 
   return (
     <div id="outer-container">
-      {/* 🔝 Anchor for "Back to Top" link */}
       <div id="top" />
 
       <Head>
@@ -17,7 +18,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Main Page Content for react-burger-menu to wrap around */}
       <main id="page-wrap" className="relative">
         <Header />
 
@@ -26,9 +26,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0 bg-hero bg-cover bg-center bg-no-repeat" />
 
           <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-xl shadow-lg p-6 max-w-md space-y-5 leading-relaxed">
-            <h1 className="text-3xl font-bold text-[#111]">
-              A home for radical imagination.
-            </h1>
+            <h1 className="text-3xl font-bold text-[#111]">A home for radical imagination.</h1>
             <p className="text-sm text-[#444]">
               We craft <span className="font-semibold text-[#8A0303]">digital stories</span>,
               <span className="font-semibold text-[#8A0303]"> live gatherings</span>, and
@@ -59,8 +57,14 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Image Carousel with Captions & Links */}
-           
+            {/* Lightbox Gallery */}
+            <div className="mb-12">
+              {/* <GalleryLightbox /> */} 
+
+<GalleryLightbox />
+
+            
+            </div>
 
             <div className="max-w-3xl mx-auto text-center text-[#333] text-base sm:text-lg leading-relaxed px-4">
               <p className="mb-6">
