@@ -42,13 +42,11 @@ export default function Header() {
 
   return (
     <>
-      {/* Fixed Burger Button (outside the header layout) */}
-      <div className="fixed top-6 right-6 z-[9999] md:hidden">
-        <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
-      </div>
+
+    
 
       {/* Header bar */}
-      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-4 md:px-12 py-4 md:py-8 z-10 relative">
+      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8 z-10 relative">
         {/* Logo */}
         <div className="flex items-center justify-start min-h-[80px]">
           <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
@@ -75,6 +73,10 @@ export default function Header() {
             <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
           </a>
         </div>
+
+        <div className="flex justify-end md:hidden">
+        <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+      </div>
       </header>
 
       {/* Mobile Slide Menu */}
