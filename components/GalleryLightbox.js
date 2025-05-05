@@ -1,4 +1,4 @@
-'use client';
+
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 
 const slides = [
-    { src: '/gallery/dejablue.jpg', alt: 'TinyStage Presents: Deja Blue Band' },
+{ src: '/gallery/dejablue.jpg', alt: 'TinyStage Presents: Deja Blue Band' },
     { src: '/gallery/TScrowd.jpeg', alt: 'TinyStage Presents: Deja Blue Band' },
     { src: '/gallery/dejalive.jpg', alt: 'TinyStage Presents: Deja Blue Band' },
     { src: '/gallery/kid.jpeg', alt: 'TinyStage Presents: Deja Blue Band'},
@@ -23,36 +23,32 @@ const slides = [
     { src: '/gallery/kig-15.jpg', alt: 'Kigoma NYE' },
     { src: '/gallery/kig-16.jpg', alt: 'Kigoma NYE' },
     { src: '/gallery/kig-17.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/TVR.jpeg', alt: 'TV Repairman' },
-  ];
 
-export default function GalleryLightbox() {
+];
+
+export default function GallerySwiper() {
   return (
-    <div className="w-full max-w-6xl mx-auto py-12">
+    <div className="w-full max-w-6xl mx-auto py-12 px-4">
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
-        loop={true}
-        navigation={true}
-        pagination={{ clickable: true }}
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={1}
-        className="rounded-lg overflow-hidden"
+        loop={true}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        className="rounded-lg bg-[#8A0303] shadow-2xl"
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-          <div className="relative w-full h-64 bg-[#8A0303]">
-          <div className="relative w-full aspect-[3/2] bg-[#8A0303]">
-  <Image
-    src={slide.src}
-    alt={slide.alt}
-    fill
-    className="object-contain md:object-cover"
-  />
-</div>
-
-
-
+            <div className="relative w-full h-[60vh]">
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                className="object-contain bg-[#8A0303]"
+                priority={i === 0}
+              />
             </div>
           </SwiperSlide>
         ))}
