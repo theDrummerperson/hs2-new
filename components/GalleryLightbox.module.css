@@ -1,31 +1,38 @@
 /* components/GalleryLightbox.module.css */
 
-/* Local wrapper class (used in your component) */
+/* Local wrapper */
 .galleryWrapper {
-  /* any local styles you want */
+  position: relative;
+  z-index: 50;
 }
 
-/* Global overrides scoped inside local wrapper */
+
+
+/* components/GalleryLightbox.module.css */
+
+/* Local wrapper */
+.galleryWrapper {
+  position: relative;
+  z-index: 50;
+}
+
+/* Customize the Lightbox container background */
+.galleryWrapper :global(.yarl__container) {
+  background-color: #f5eded;
+}
+
+/* Style Lightbox arrows (next/prev icons) */
 .galleryWrapper :global(.yarl__icon) {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   color: #F9F6F1;
   fill: #F9F6F1;
   transition: transform 0.2s ease;
 }
 
 .galleryWrapper :global(.yarl__icon:hover) {
-  transform: scale(1.1);
+  transform: scale(1.2);
   color: #ffffff;
+  fill: #ffffff;
 }
 
-.galleryWrapper :global(.yarl__button) {
-  background-color: rgba(138, 3, 3, 0.6);
-  backdrop-filter: blur(8px);
-  border-radius: 50%;
-  padding: 8px;
-}
-
-.galleryWrapper :global(.yarl__container) {
-  background-color: #8A0303;
-}

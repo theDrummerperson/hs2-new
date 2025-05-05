@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
-import BurgerButton from './BurgerButton';
+import BurgerButton from "./BurgerButton";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +29,6 @@ export default function Header() {
       top: 0,
       zIndex: 9999,
     },
-    
     bmMenu: {
       background: "#F9F6F1",
       padding: "1.5em .75em 0",
@@ -43,30 +42,32 @@ export default function Header() {
 
   return (
     <>
+      {/* Fixed Burger Button (outside the header layout) */}
       <div className="fixed top-6 right-6 z-[9999] md:hidden">
         <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
       </div>
 
-      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-4 md:px-12 py-4 md:py-8">
+      {/* Header bar */}
+      <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-4 md:px-12 py-4 md:py-8 z-10 relative">
         {/* Logo */}
         <div className="flex items-center justify-start min-h-[80px]">
-        <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
-  <Image
-    src="/logo.svg"
-    alt="Logo"
-    layout="fill"
-    objectFit="contain"
-    priority
-  />
-</Link>
-
+          <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </Link>
         </div>
 
         {/* Nav (desktop only) */}
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
-        <Link href="#about" className="nav-link">ABOUT</Link>
-<Link href="#projects" className="nav-link">PROJECTS</Link>
-<Link href="#contact" className="nav-link">CONTACT</Link></nav>
+          <Link href="#about" className="nav-link">ABOUT</Link>
+          <Link href="#projects" className="nav-link">PROJECTS</Link>
+          <Link href="#contact" className="nav-link">CONTACT</Link>
+        </nav>
 
         {/* Social Icons (desktop only) */}
         <div className="hidden md:flex space-x-4 justify-end items-center">
@@ -106,16 +107,9 @@ export default function Header() {
               >
                 ← Back
               </button>
-              <Link href="/tv-repairman" className="menu-item-link" onClick={closeMenu}>
-  TV-Repairman
-</Link>
-<Link href="/kagoma" className="menu-item-link" onClick={closeMenu}>
-  Kagoma
-</Link>
-<Link href="/tinystage" className="menu-item-link" onClick={closeMenu}>
-  TinyStage
-</Link>
-
+              <Link href="/tv-repairman" className="menu-item-link" onClick={closeMenu}>TV-Repairman</Link>
+              <Link href="/kagoma" className="menu-item-link" onClick={closeMenu}>Kagoma</Link>
+              <Link href="/tinystage" className="menu-item-link" onClick={closeMenu}>TinyStage</Link>
             </>
           )}
 
@@ -127,7 +121,6 @@ export default function Header() {
               src="/Instagram_Glyph_Gradient_RGB.png"
               layout="fill"
               objectFit="contain"
-              objectPosition="center"
               alt="Instagram"
             />
           </a>
