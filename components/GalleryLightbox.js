@@ -9,20 +9,20 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 
 const slides = [
-{ src: '/gallery/dejablue.jpg', alt: 'TinyStage Presents: Deja Blue Band' },
-    { src: '/gallery/TScrowd.jpeg', alt: 'TinyStage Presents: Deja Blue Band' },
-    { src: '/gallery/dejalive.jpg', alt: 'TinyStage Presents: Deja Blue Band' },
-    { src: '/gallery/kid.jpeg', alt: 'TinyStage Presents: Deja Blue Band'},
-    { src: '/gallery/dejablue2.jpg', alt: 'TinyStage Presents: Deja Blue Band'},
-    { src: '/gallery/kagoma.jpg', alt: 'Kagoma NYE' },
-    { src: '/gallery/Kig-2.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/kig-9.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/kig-10.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/kig-11.jpg', alt: 'Kigoma 11' },
-    { src: '/gallery/kig-14.jpg', alt: 'Kigoma 14' },
-    { src: '/gallery/kig-15.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/kig-16.jpg', alt: 'Kigoma NYE' },
-    { src: '/gallery/kig-17.jpg', alt: 'Kigoma NYE' },
+
+{ src: '/gallery/dejablue.png', alt: 'TinyStage Presents: Deja Blue Band' },
+    { src: '/gallery/TScrowd.png', alt: 'TinyStage Presents: Deja Blue Band' },
+    { src: '/gallery/dejalive.png', alt: 'TinyStage Presents: Deja Blue Band' },
+    { src: '/gallery/dejalive2.png', alt: 'TinyStage Presents: Deja Blue Band' },
+    { src: '/gallery/kigoma.png', alt: 'Kagoma NYE' },
+    { src: '/gallery/kagoma.png', alt: 'Kagoma NYE' },
+    { src: '/gallery/Kig-2.png', alt: 'Kigoma NYE' },
+    { src: '/gallery/kig-9.png', alt: 'Kigoma NYE' },
+    { src: '/gallery/kig-10.png', alt: 'Kigoma NYE' },
+    { src: '/gallery/kig-11.png', alt: 'Kigoma 11' },
+    { src: '/gallery/kig-14.png', alt: 'Kigoma 14' },
+    { src: '/gallery/kig-15.png', alt: 'Kigoma NYE' },
+  
 
 ];
 
