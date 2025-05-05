@@ -48,7 +48,7 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects" className="relative min-h-screen px-6 py-24 bg-[#F9F6F1] overflow-hidden">
           {/* Decorative Top Border */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-3/4 bg-gradient-to-r from-[#8A0303]/30 via-[#F9F6F1] to-[#8A0303]/30 rounded-full z-0"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-3/4 bg-gradient-to-r from-[#F9F6F1] via-[#F9F6F1] to-[#F9F6F1] rounded-full z-0"></div>
 
           <div className="relative z-10 max-w-6xl mx-auto">
             {/* Animated Heading */}
@@ -73,7 +73,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-12"
             >
-              <div className="relative isolate w-full bg-[#8A0303] py-12 shadow-2xl border-y-4 border-[#600202]/30">
+              <div className="relative isolate w-full bg-[#F9F6F1] py- shadow-xl  border-[#000000] border-2 rounded-lg">
                 <div className="max-w-6xl mx-auto px-4">
                   <GalleryLightbox />
                 </div>

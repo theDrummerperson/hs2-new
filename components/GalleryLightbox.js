@@ -46,7 +46,7 @@ export default function GallerySwiper() {
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                className="object-contain bg-[#8A0303]"
+                className="object-contain bg-[white]"
                 priority={i === 0}
               />
             </div>
