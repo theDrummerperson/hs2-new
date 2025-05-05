@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import HeroBanner from "../components/HeroBanner";
 import GalleryLightbox from "../components/GalleryLightbox";
 import { motion } from "framer-motion";
 import ContactForm from "../components/ContactForm";
@@ -23,10 +24,9 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="relative text-[#222] min-h-screen sm:min-h-[800px]">
-          <div className="absolute inset-0 z-0 bg-hero bg-cover bg-center bg-no-repeat" />
-
-          <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-xl shadow-lg p-6 max-w-md space-y-5 leading-relaxed">
-            <h1 className="text-3xl font-bold text-[#111]">A home for radical imagination.</h1>
+ {/* Hero Banner */}
+ <HeroBanner />
+  <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-xl shadow-lg p-6 max-w-md space-y-5 leading-relaxed">
             <p className="text-sm text-[#444]">
               We craft <span className="font-semibold text-[#8A0303]">digital stories</span>,
               <span className="font-semibold text-[#8A0303]"> live gatherings</span>, and
@@ -47,7 +47,6 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="relative min-h-screen px-6 py-24 bg-[#F9F6F1] overflow-hidden">
-          {/* Decorative Top Border */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-3/4 bg-gradient-to-r from-[#F9F6F1] via-[#F9F6F1] to-[#F9F6F1] rounded-full z-0"></div>
 
           <div className="relative z-10 max-w-6xl mx-auto">
@@ -73,7 +72,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-12"
             >
-              <div className="relative isolate w-full bg-[#F9F6F1] py- shadow-xl  border-[#000000] border-2 rounded-lg">
+              <div className="relative isolate w-full bg-[#F9F6F1] py- shadow-xl border-[#000000] border-2 rounded-lg">
                 <div className="max-w-6xl mx-auto px-4">
                   <GalleryLightbox />
                 </div>

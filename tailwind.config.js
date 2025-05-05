@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        hero: "url('/hero1.png')",
+        hero: "url('/gallery/hbfinalsmb.svg')",
       },
       colors: {
         offwhite: "#F9F6F1", // ✅ this is correct
