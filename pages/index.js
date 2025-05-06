@@ -28,7 +28,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="relative px-6 py-28 bg-[#F9F6F1] overflow-hidden">
+        <section id="projects" className="relative pt-28 pb-10 bg-[#F9F6F1] overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-3/4 bg-gradient-to-r from-[#F9F6F1] via-[#F9F6F1] to-[#F9F6F1] rounded-full z-0"></div>
 
           <div className="relative z-10 max-w-7xl mx-auto">
@@ -71,24 +71,14 @@ export default function Home() {
                 Whether through performance, conceptual installations, or public art, our projects are designed to <span className="italic">uplift</span>, <span className="italic">reflect</span>, and <span className="italic">transform</span>. Holland Street reclaims the commons—to rewrite narratives and uplift voices.
               </p>
             </motion.div>
+
+            {/* Divider Line */}
+            <div className="w-12 h-1 bg-[#8A0303]/10 mx-auto my-12 rounded-full" />
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="min-h-screen px-6 py-20 bg-[#F9F6F1]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 text-center"
-          >
-            <a
-              href="#contact"
-              className="inline-block bg-[#8A0303] text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-[#600202] transition"
-            >
-              Connect With Us →
-            </a>
-          </motion.div>
+        <section id="contact" className="min-h-[80vh] px-6 pt-10 pb-20 bg-[#F9F6F1]">
           <ContactForm />
         </section>
       </main>

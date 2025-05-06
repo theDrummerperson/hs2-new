@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 import { Dialog, DialogTitle } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import { motion } from 'framer-motion';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 const projects = [
   {
@@ -43,9 +45,19 @@ export default function Projects() {
 
   return (
     <>
+      {/* Mobile View: Swiper with fade + loop */}
       <div className="block sm:hidden">
-        <Swiper spaceBetween={20} slidesPerView={1} className="pb-4">
-          {projects.map(({ title, label, img, href }, index) => (
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          loopAdditionalSlides={projects.length}
+          className="pb-4"
+        >
+          {projects.map(({ title, label, img, href }) => (
             <SwiperSlide key={title}>
               <button
                 onClick={() => setSelectedProject({ title, label, img, href })}
@@ -68,6 +80,7 @@ export default function Projects() {
         </Swiper>
       </div>
 
+      {/* Desktop View: Static grid */}
       <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map(({ title, label, href, img }, index) => (
           <motion.div
@@ -100,6 +113,7 @@ export default function Projects() {
         ))}
       </div>
 
+      {/* Project Modal */}
       <Dialog open={!!selectedProject} onClose={() => setSelectedProject(null)} className="fixed inset-0 z-50 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen px-4">
           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />

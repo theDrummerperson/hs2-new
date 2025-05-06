@@ -1,61 +1,95 @@
 'use client';
 
-import { useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import { useRef, useState } from 'react';
+import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
 
 export default function ContactForm() {
   const form = useRef();
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "service_icbx9n2",      // replace with your EmailJS service ID
-      "template_tv6r3bj",     // replace with your template ID
-      form.current,
-      "FP298Dzv_TQdcmwEE"       // replace with your public key
-    ).then(
-      () => setStatus("✅ Message sent!"),
-      () => setStatus("❌ Failed to send. Please try again.")
-    );
+    emailjs
+      .sendForm(
+        'service_icbx9n2',     // Replace with your service ID
+        'template_tv6r3bj',    // Replace with your template ID
+        form.current,
+        'FP298Dzv_TQdcmwEE'    // Replace with your public key
+      )
+      .then(
+        () => setStatus('✅ Message sent!'),
+        () => setStatus('❌ Failed to send. Please try again.')
+      );
 
     e.target.reset();
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="space-y-6 max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold text-center text-[#8A0303]">Get in Touch</h2>
+    <section className="max-w-2xl mx-auto px-6 py-10 bg-white rounded-2xl shadow-2xl border border-gray-100">
+      <h2 className="text-3xl font-extrabold text-[#8A0303] text-center mb-6">Let’s Connect</h2>
+      <p className="text-center text-gray-600 mb-10">Got a question, proposal, or just want to say hi? Drop a message below.</p>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-        className="w-full px-4 py-2 border border-gray-300 rounded"
-      />
+      <form ref={form} onSubmit={sendEmail} className="space-y-6">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            Your Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#8A0303] focus:border-[#8A0303] transition"
+          />
+        </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        required
-        className="w-full px-4 py-2 border border-gray-300 rounded"
-      />
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            Email Address
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#8A0303] focus:border-[#8A0303] transition"
+          />
+        </div>
 
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        rows="5"
-        required
-        className="w-full px-4 py-2 border border-gray-300 rounded"
-      />
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            Message
+          </label>
+          <textarea
+            name="message"
+            id="message"
+            rows="5"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#8A0303] focus:border-[#8A0303] transition"
+          />
+        </div>
 
-      <button type="submit" className="bg-[#8A0303] text-white px-6 py-2 rounded hover:bg-[#600202] transition">
-        Send Message
-      </button>
+        <div className="text-center pt-4">
+          <button
+            type="submit"
+            className="inline-block bg-[#8A0303] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#6c0202] focus:ring-2 focus:ring-offset-2 focus:ring-[#8A0303] transition"
+          >
+            Send Message
+          </button>
+        </div>
 
-      {status && <p className="text-sm pt-2 text-center text-gray-700">{status}</p>}
-    </form>
+        {status && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center text-sm text-gray-700 mt-4"
+          >
+            {status}
+          </motion.p>
+        )}
+      </form>
+    </section>
   );
 }
