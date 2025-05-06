@@ -41,8 +41,8 @@ export default function HeroBanner() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#8A0303]/80 via-[#8A0303]/40 to-transparent" />
       </div>
 
-      <div className="pl-6 pr-4 py-10 md:py-16 relative z-10">
-        <div className="bg-[#F9F6F1] rounded-[2rem] px-4 md:px-8 py-10 md:py-16 flex flex-col items-start justify-start space-y-6 max-w-xl">
+      <div className="pl-4 pr-4 py-10 md:py-16 relative z-10">
+  <div className="bg-[#F9F6F1]/80 rounded-[2rem] px-4 md:px-8 py-10 md:py-16 flex flex-col items-start justify-start space-y-6 max-w-md mx-auto sm:mx-0">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#8A0303] font-serif leading-tight">
             HOLLAND STREET
           </h1>
