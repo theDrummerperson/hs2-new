@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import { motion } from "framer-motion";
 
+
 export default function ContactPage() {
   return (
     <div id="outer-container">

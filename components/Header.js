@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
 import BurgerButton from "./BurgerButton";
+import { useRouter } from 'next/router';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showProjectsSubMenu, setShowProjectsSubMenu] = useState(false);
+  const router = useRouter();
 
   const handleStateChange = (state) => {
     setMenuOpen(state.isOpen);
@@ -17,6 +19,19 @@ export default function Header() {
   const closeMenu = () => {
     setMenuOpen(false);
     setShowProjectsSubMenu(false);
+  };
+
+  // Navigate to section (even from a different page)
+  const scrollToSection = (sectionId) => {
+    if (router.pathname === "/") {
+      const el = document.querySelector(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+      closeMenu();
+    } else {
+      router.push(`/#${sectionId.replace("#", "")}`);
+    }
   };
 
   const styles = {
@@ -42,14 +57,11 @@ export default function Header() {
 
   return (
     <>
-
-    
-
       {/* Header bar */}
       <header className="grid grid-cols-2 md:grid-cols-3 items-center shadow-md bg-[#F9F6F1] px-0 md:px-12 py-4 md:py-8 z-10 relative">
         {/* Logo */}
         <div className="flex items-center justify-start min-h-[80px]">
-          <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
+          <Link href="/" scroll={false} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
             <Image
               src="/logojjj.svg"
               alt="Logo"
@@ -60,26 +72,27 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Nav (desktop only) */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
-          <Link href="#about" className="nav-link">ABOUT</Link>
-          <Link href="#projects" className="nav-link">PROJECTS</Link>
+          <button onClick={() => scrollToSection('#about')} className="nav-link">ABOUT</button>
+          <button onClick={() => scrollToSection('#projects')} className="nav-link">PROJECTS</button>
           <Link href="/contact" className="nav-link">CONTACT</Link>
         </nav>
 
-        {/* Social Icons (desktop only) */}
+        {/* Social Icons */}
         <div className="hidden md:flex space-x-4 justify-end items-center">
           <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
             <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
           </a>
         </div>
 
+        {/* Burger Button */}
         <div className="flex justify-end md:hidden">
-        <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
-      </div>
+          <BurgerButton isOpen={menuOpen} toggle={() => setMenuOpen(!menuOpen)} />
+        </div>
       </header>
 
-      {/* Mobile Slide Menu */}
+      {/* Mobile Menu */}
       <div className="block md:hidden">
         <Menu
           pageWrapId={"page-wrap"}
@@ -92,21 +105,13 @@ export default function Header() {
         >
           {!showProjectsSubMenu ? (
             <>
-              <a href="#about" onClick={closeMenu} className="menu-item-link">ABOUT</a>
-              <button
-                onClick={() => setShowProjectsSubMenu(true)}
-                className="menu-item-link"
-              >
-                PROJECTS
-              </button>
-              <a href="#contact" onClick={closeMenu} className="menu-item-link">CONTACT</a>
+              <button onClick={() => scrollToSection('#about')} className="menu-item-link">ABOUT</button>
+              <button onClick={() => setShowProjectsSubMenu(true)} className="menu-item-link">PROJECTS</button>
+              <Link href="/contact" className="menu-item-link" onClick={closeMenu}>CONTACT</Link>
             </>
           ) : (
             <>
-              <button
-                onClick={() => setShowProjectsSubMenu(false)}
-                className="menu-item-link text-sm text-gray-500 mb-4"
-              >
+              <button onClick={() => setShowProjectsSubMenu(false)} className="menu-item-link text-sm text-gray-500 mb-4">
                 ← Back
               </button>
               <Link href="/tv-repairman" className="menu-item-link" onClick={closeMenu}>TV-Repairman</Link>
@@ -115,16 +120,8 @@ export default function Header() {
             </>
           )}
 
-          <a
-            className="relative h-10 w-10 cursor-pointer hover:opacity-80 transition duration-150"
-            href="https://www.instagram.com/holland.street"
-          >
-            <Image
-              src="/Instagram_Glyph_Gradient_RGB.png"
-              layout="fill"
-              objectFit="contain"
-              alt="Instagram"
-            />
+          <a href="https://www.instagram.com/holland.street" className="relative h-10 w-10 hover:opacity-80 transition">
+            <Image src="/Instagram_Glyph_Gradient_RGB.png" layout="fill" objectFit="contain" alt="Instagram" />
           </a>
         </Menu>
       </div>
