@@ -1,13 +1,14 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Dialog, DialogTitle } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
+import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -32,7 +33,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function FeaturedProjects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const router = useRouter();
 
@@ -44,7 +45,8 @@ export default function Projects() {
   }, [selectedProject, router]);
 
   return (
-    <>
+    <div className="relative z-10 max-w-7xl mx-auto px-6">
+      {/* Mobile Swiper View */}
       <div className="block sm:hidden">
         <Swiper
           modules={[Autoplay, EffectFade]}
@@ -79,7 +81,8 @@ export default function Projects() {
         </Swiper>
       </div>
 
-      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Desktop Grid View */}
+      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {projects.map(({ title, label, href, img }, index) => (
           <motion.div
             key={title}
@@ -111,6 +114,7 @@ export default function Projects() {
         ))}
       </div>
 
+      {/* Dialog */}
       <Dialog open={!!selectedProject} onClose={() => setSelectedProject(null)} className="fixed inset-0 z-50 overflow-y-auto">
         <div className="flex items-center justify-center min-h-screen px-4">
           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />
@@ -153,6 +157,6 @@ export default function Projects() {
           )}
         </div>
       </Dialog>
-    </>
+    </div>
   );
 }

@@ -51,7 +51,7 @@ export default function Header() {
         <div className="flex items-center justify-start min-h-[80px]">
           <Link href="/#about" scroll={true} className="block relative w-[140px] h-[60px] sm:w-[200px] sm:h-[80px]">
             <Image
-              src="/gallery/logox.svg"
+              src="/logojjj.svg"
               alt="Logo"
               layout="fill"
               objectFit="contain"

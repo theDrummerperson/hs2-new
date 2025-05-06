@@ -1,10 +1,12 @@
+// pages/index.js
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroBanner from "../components/HeroBanner";
 import { motion } from "framer-motion";
 import ContactForm from "../components/ContactForm";
-import Projects from '../components/Projects';
+
+import FeaturedProjects from '../components/FeaturedProjects';
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -47,15 +49,17 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Project Gallery */}
+            {/* Featured Carousel */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-20"
             >
-              <Projects />
+              <FeaturedProjects />
             </motion.div>
+
+          
 
             {/* Description Text */}
             <motion.div
