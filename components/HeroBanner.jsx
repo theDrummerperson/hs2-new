@@ -28,6 +28,18 @@ export default function HeroBanner() {
 
   return (
     <section className="bg-[#8A0303] relative overflow-hidden">
+      {/* Mobile image block stacked above content */}
+      <div className="md:hidden relative w-full h-[300px] sm:h-[400px] transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
+        <Image
+          src={images[currentIndex]}
+          alt="Hero Mobile Gallery Image"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#8A0303]/80 via-[#8A0303]/40 to-transparent" />
+      </div>
+
       <div className="pl-6 pr-4 py-10 md:py-16 relative z-10">
         <div className="bg-[#F9F6F1] rounded-[2rem] px-4 md:px-8 py-10 md:py-16 flex flex-col items-start justify-start space-y-6 max-w-xl">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#8A0303] font-serif leading-tight">
@@ -66,20 +78,6 @@ export default function HeroBanner() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#F9F6F1] to-transparent" />
-        </div>
-      </div>
-
-      {/* Mobile image background */}
-      <div className="md:hidden absolute inset-0 z-0">
-        <div className="relative w-full h-full transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
-          <Image
-            src={images[currentIndex]}
-            alt="Hero Mobile Gallery Image"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#8A0303]/80 via-[#8A0303]/40 to-transparent" />
         </div>
       </div>
     </section>
