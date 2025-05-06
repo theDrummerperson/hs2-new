@@ -20,13 +20,13 @@ const projects = [
     title: 'Kigoma NYE Celebration',
     label: 'Cultural Event',
     href: '/kigoma',
-    img: '/gallery/kigoma.png',
+    img: '/gallery/kig-11.png',
   },
   {
     title: 'TV Repairman',
     label: 'Art Installation',
     href: '/tv-repairman',
-    img: '/gallery/kagoma.png',
+    img: '/gallery/feed.svg',
   },
 ];
 
