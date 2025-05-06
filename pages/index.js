@@ -26,23 +26,7 @@ export default function Home() {
         <section id="about" className="relative text-[#222] min-h-screen sm:min-h-[800px]">
  {/* Hero Banner */}
  <HeroBanner />
-  <div className="absolute bottom-0 left-0 z-10 m-6 bg-white/90 rounded-xl shadow-lg p-6 max-w-md space-y-5 leading-relaxed">
-            <p className="text-sm text-[#444]">
-              We craft <span className="font-semibold text-[#8A0303]">digital stories</span>,
-              <span className="font-semibold text-[#8A0303]"> live gatherings</span>, and
-              <span className="font-semibold text-[#8A0303]"> communal rituals</span> that center liberation—not consumption.
-            </p>
-            <p className="text-sm text-[#444]">
-              Rooted in <span className="italic">freedom</span> and
-              <span className="italic"> sovereignty</span>, Holland Street is both a cultural studio and a public house
-              for visionaries, refugees, and builders of new worlds.
-            </p>
-            <p className="text-md font-bold text-[#8A0303] tracking-wide uppercase">
-              We don’t sell belonging —
-              <br className="sm:hidden" />
-              we cultivate becoming.
-            </p>
-          </div>
+ 
         </section>
 
         {/* Projects Section */}
