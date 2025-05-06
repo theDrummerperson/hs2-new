@@ -28,7 +28,7 @@ export default function ContactForm() {
 
   return (
     <section className="max-w-2xl mx-auto px-6 py-10 bg-white rounded-2xl shadow-2xl border border-gray-100">
-      <h2 className="text-3xl font-extrabold text-[#8A0303] text-center mb-6">Let’s Connect</h2>
+
       <p className="text-center text-gray-600 mb-10">Got a question, proposal, or just want to say hi? Drop a message below.</p>
 
       <form ref={form} onSubmit={sendEmail} className="space-y-6">

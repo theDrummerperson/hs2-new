@@ -77,14 +77,11 @@ export default function Home() {
             </motion.div>
 
             {/* Divider Line */}
-            <div className="w-12 h-1 bg-[#8A0303]/10 mx-auto my-12 rounded-full" />
+            <div className="w-12 h-1 bg-[#8A0303] mx-auto my-12 rounded-full" />
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="min-h-[80vh] px-6 pt-10 pb-20 bg-[#F9F6F1]">
-          <ContactForm />
-        </section>
+     
       </main>
 
       <Footer />

@@ -64,7 +64,7 @@ export default function Header() {
         <nav className="hidden md:flex space-x-6 justify-center text-sm font-semibold tracking-wide">
           <Link href="#about" className="nav-link">ABOUT</Link>
           <Link href="#projects" className="nav-link">PROJECTS</Link>
-          <Link href="#contact" className="nav-link">CONTACT</Link>
+          <Link href="/contact" className="nav-link">CONTACT</Link>
         </nav>
 
         {/* Social Icons (desktop only) */}
