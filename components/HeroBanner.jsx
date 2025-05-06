@@ -8,6 +8,7 @@ const images = [
   '/gallery/dejablue.png',
   '/gallery/kigoma.png',
   '/gallery/dejalive.png',
+  '/gallery/Kig-2.png',
   '/gallery/kagoma.png',
 ];
 
