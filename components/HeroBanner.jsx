@@ -35,18 +35,14 @@ export default function HeroBanner() {
           </h1>
           <p className="italic text-lg text-[#8A0303]">A Cultural Studio & Public House</p>
 
-         
-
           <hr className="my-4 border-[#8A0303]/20 w-12" />
 
-     
           <p className="text-sm text-[#444] leading-relaxed">
             We craft <span className="font-semibold text-[#8A0303]">digital stories</span>,
             <span className="font-semibold text-[#8A0303]"> live gatherings</span>, and
             <span className="font-semibold text-[#8A0303]"> communal rituals</span> that center liberation—not consumption.
           </p>
 
-         
           <p className="text-sm text-[#444] leading-relaxed">
             Rooted in <span className="italic">freedom</span> and
             <span className="italic"> sovereignty</span>, we exist as a cultural studio and a public house
@@ -59,8 +55,8 @@ export default function HeroBanner() {
         </div>
       </div>
 
-      {/* Right-anchored image gallery with gradient mask */}
-      <div className="absolute inset-0 z-0 flex justify-end">
+      {/* Right-anchored image gallery with gradient mask (hidden on mobile) */}
+      <div className="hidden md:flex absolute inset-0 z-0 justify-end">
         <div className="relative w-2/3 h-full transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
           <Image
             src={images[currentIndex]}
@@ -72,6 +68,20 @@ export default function HeroBanner() {
           <div className="absolute inset-0 bg-gradient-to-l from-[#F9F6F1] to-transparent" />
         </div>
       </div>
+
+      {/* Mobile image background */}
+      <div className="md:hidden absolute inset-0 z-0">
+        <div className="relative w-full h-full transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
+          <Image
+            src={images[currentIndex]}
+            alt="Hero Mobile Gallery Image"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#8A0303]/80 via-[#8A0303]/40 to-transparent" />
+        </div>
+      </div>
     </section>
   );
-} 
+}
