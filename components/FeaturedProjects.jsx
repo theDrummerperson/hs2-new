@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Dialog, DialogTitle } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -37,13 +37,6 @@ export default function FeaturedProjects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const router = useRouter();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.innerWidth < 640 && selectedProject) {
-      router.push(selectedProject.href);
-      setSelectedProject(null);
-    }
-  }, [selectedProject, router]);
-
   return (
     <div className="relative z-10 max-w-7xl mx-auto px-6">
       {/* Mobile Swiper View */}
@@ -61,7 +54,7 @@ export default function FeaturedProjects() {
           {projects.map(({ title, label, img, href }) => (
             <SwiperSlide key={title}>
               <button
-                onClick={() => setSelectedProject({ title, label, img, href })}
+                onClick={() => router.push(href)} // 👈 Direct mobile navigation
                 className="w-full block rounded-3xl overflow-hidden border border-[#8A0303]/40 focus:outline-none"
               >
                 <Image
@@ -115,46 +108,48 @@ export default function FeaturedProjects() {
       </div>
 
       {/* Dialog */}
-      <Dialog open={!!selectedProject} onClose={() => setSelectedProject(null)} className="fixed inset-0 z-50 overflow-y-auto">
+      <Dialog
+        open={!!selectedProject}
+        onClose={() => setSelectedProject(null)}
+        className="fixed inset-0 z-50 overflow-y-auto"
+      >
         <div className="flex items-center justify-center min-h-screen px-4">
-          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50" />
+          <div className="fixed inset-0 bg-black bg-opacity-50" />
 
-          {selectedProject && (
-            <div className="relative bg-[#F9F6F1] rounded-2xl max-w-md w-full mx-auto overflow-hidden shadow-xl z-50">
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 text-[#8A0303] font-bold text-xl"
-              >
-                ×
-              </button>
+          <Dialog.Panel className="relative bg-[#F9F6F1] rounded-2xl max-w-md w-full mx-auto overflow-hidden shadow-xl z-50">
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 text-[#8A0303] font-bold text-xl"
+            >
+              ×
+            </button>
 
-              <DialogTitle className="sr-only">{selectedProject.title}</DialogTitle>
+            <DialogTitle className="sr-only">{selectedProject?.title}</DialogTitle>
 
-              <div className="w-full aspect-video">
-                <Image
-                  src={selectedProject.img}
-                  alt={selectedProject.title}
-                  fill
-                  className="object-cover rounded-t-2xl"
-                />
-              </div>
-
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-widest text-[#8A0303] font-medium mb-1">
-                  {selectedProject.label}
-                </p>
-                <h2 className="text-2xl font-bold text-[#111] mb-4">
-                  {selectedProject.title}
-                </h2>
-                <Link
-                  href={selectedProject.href}
-                  className="inline-block bg-[#8A0303] text-white px-4 py-2 rounded-md text-sm hover:bg-[#6c0202] transition"
-                >
-                  Visit Project →
-                </Link>
-              </div>
+            <div className="w-full aspect-video relative">
+              <Image
+                src={selectedProject?.img || '/placeholder.png'}
+                alt={selectedProject?.title || 'Project Image'}
+                fill
+                className="object-cover rounded-t-2xl"
+              />
             </div>
-          )}
+
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-widest text-[#8A0303] font-medium mb-1">
+                {selectedProject?.label}
+              </p>
+              <h2 className="text-2xl font-bold text-[#111] mb-4">
+                {selectedProject?.title}
+              </h2>
+            <Link
+  href="/tinystage"
+  className="text-blue-600 underline"
+>
+  Go to TinyStage →
+</Link>
+            </div>
+          </Dialog.Panel>
         </div>
       </Dialog>
     </div>

@@ -5,10 +5,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const images = [
-  '/gallery/dejablue.png',
+  '/gallery/kig-drums.jpg',
   '/gallery/kigoma.png',
   '/gallery/dejalive.png',
-  '/gallery/Kig-2.png',
   '/gallery/kagoma.png',
 ];
 

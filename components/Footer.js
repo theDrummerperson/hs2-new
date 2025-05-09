@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Info */}
-        <address className="not-italic w-full md:w-1/2 flex flex-col items-center md:items-end space-y-3 text-sm font-medium tracking-wide pt-4 md:pt-0">
+<address className="not-italic w-full md:w-1/2 flex flex-col items-center md:items-end space-y-3 text-sm font-medium tracking-wide pt-4 md:pt-0 pr-4 md:pr-8">
           <p className="text-sm uppercase tracking-wider text-[#F9F6F1] font-bold">Follow Us</p>
           <div className="flex items-center gap-3">
             <a
