@@ -67,28 +67,42 @@ export default function Header() {
 
   return (
     <>
-      {/* Desktop Fixed Side Panel */}
-      <div className="hidden md:flex fixed top-0 left-0 h-screen w-64 bg-[#ECE7E0] p-8 flex-col justify-between z-50 shadow-xl">
-        <div>
-          <Link href="/" scroll={false} className="block relative w-[160px] h-[70px] mb-12">
-            <Image src="/logoj.svg" alt="Logo" layout="fill" objectFit="contain" priority />
-          </Link>
-          <nav className="flex flex-col space-y-6 text-lg font-semibold">
-            <button onClick={() => scrollToSection('#about')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">ABOUT</button>
-            <button onClick={() => scrollToSection('#projects')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">PROJECTS</button>
-            <Link href="/contact" className="nav-link-desktop hover:text-[#8A0303] transition">CONTACT</Link>
-          </nav>
-        </div>
-        <div className="mt-auto pt-6 text-center">
-          <p className="text-xs text-gray-500 mb-4">
-            Holland Street © {new Date().getFullYear()}<br />Cultivating Becoming.
-          </p>
-          <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
-            <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
-          </a>
-        </div>
-      </div>
+     {/* Desktop Fixed Side Panel */}
+<div className="hidden md:flex fixed top-0 left-0 h-screen w-64 bg-[#ECE7E0] p-8 flex-col justify-between z-50 shadow-xl">
+  {/* This is the top part containing logo and nav */}
+  <div className="flex flex-col items-start"> {/* <--- ADDED: items-start ensures children align to the start (left) of the cross-axis */}
+    <Link href="/" scroll={false} className="block relative w-[160px] h-[70px] mb-12">
+      {/* The 'block' nature of Link and 'objectFit="contain"' on Image should naturally align logo content left within its bounds.
+          If the SVG itself has internal whitespace on the left, that's an asset issue. */}
+      <Image src="/logoj.svg" alt="Logo" layout="fill" objectFit="contain" priority />
+    </Link>
+    <nav className="flex flex-col items-start space-y-6 text-lg font-semibold"> {/* <--- ADDED: items-start here too for explicitness */}
+      {/* 'text-left' is good for the text *within* the button/link,
+          'items-start' on the nav ensures the button/link elements themselves align left. */}
+      <button onClick={() => scrollToSection('#about')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">ABOUT</button>
+      <button onClick={() => scrollToSection('#projects')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">PROJECTS</button>
+      <Link href="/contact" className="block text-left nav-link-desktop hover:text-[#8A0303] transition">CONTACT</Link> {/* Added block and text-left for consistency, though Link usually behaves well */}
+    </nav>
+  </div>
 
+  {/* Footer part (Instagram and Copyright) */}
+  <div className="mt-auto pt-6 text-center"> {/* text-center here is fine for these centered elements */}
+    <p className="text-xs text-gray-500 mb-4">
+      Holland Street © {new Date().getFullYear()}<br />Cultivating Becoming.
+    </p>
+    {/* To ensure the Instagram icon is also left-aligned if that's desired for the whole panel:
+        Change 'text-center' above to 'flex flex-col items-start' for the footer too.
+        OR if you want the icon centered but the text left:
+    */}
+    {/* <p className="text-xs text-gray-500 mb-4 text-left"> ... </p> */}
+    <div className="flex justify-center"> {/* This keeps the Instagram icon centered */}
+        <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
+            <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
+        </a>
+    </div>
+  </div>
+</div>
+      
       {/* Mobile Header Bar */}
       <header className="md:hidden bg-[#F9F6F1] px-6 py-4 flex items-center justify-between shadow-md relative z-20">
         <Link href="/" scroll={false} className="block relative w-[140px] h-[50px]">
@@ -108,18 +122,22 @@ export default function Header() {
           onStateChange={handleStateChange}
           itemListClassName="menu-item-list"
         >
-          {menuLinks.map(({ label, onClick, href, className = "menu-item-link mb-4" }, index) => (
+          {menuLinks.map(({ label, onClick, href, className }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="w-full"
+              transition={{ delay: i * 0.1 }}
+              className={className || "mb-4"}
             >
               {href ? (
-                <Link href={href} onClick={onClick} className={className}>{label}</Link>
+                <Link href={href} className="menu-item-link" onClick={closeMenu}>
+                  {label}
+                </Link>
               ) : (
-                <button onClick={onClick} className={className}>{label}</button>
+                <button onClick={onClick} className="menu-item-link">
+                  {label}
+                </button>
               )}
             </motion.div>
           ))}
@@ -129,7 +147,12 @@ export default function Header() {
           </p>
 
           <a href="https://www.instagram.com/holland.street" className="relative h-10 w-10 hover:opacity-80 transition mt-8">
-            <Image src="/Instagram_Glyph_Gradient_RGB.png" layout="fill" objectFit="contain" alt="Instagram" />
+            <Image
+              src="/Instagram_Glyph_Gradient_RGB.png"
+              layout="fill"
+              objectFit="contain"
+              alt="Instagram"
+            />
           </a>
         </Menu>
       </div>
