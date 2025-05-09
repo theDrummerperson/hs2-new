@@ -150,12 +150,16 @@
   color: #600202 !important; /* Optional: darker on hover */
   fill: #600202 !important;
 }
+/* globals.css or a <style jsx global> block */
 .swiper-pagination-bullet {
-  background-color: #D4BABA; /* soft neutral */
-  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  background: #8A0303;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #8A0303; /* Holland Street red */
   opacity: 1;
+  transform: scale(1.25);
 }

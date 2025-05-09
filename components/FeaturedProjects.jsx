@@ -4,14 +4,13 @@ import { useState } from 'react';
 import { Dialog, DialogTitle } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules'; // Removed EffectFade
-import 'swiper/css/pagination'; // Include Swiper pagination styles
+import { Autoplay, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import 'swiper/css';
-import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
 
 const projects = [
   {
@@ -36,6 +35,7 @@ const projects = [
 
 export default function FeaturedProjects() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
   const router = useRouter();
 
   return (
@@ -55,41 +55,69 @@ export default function FeaturedProjects() {
       </motion.div>
 
       {/* Mobile Swiper View */}
-      <div className="block sm:hidden">
-   <Swiper
-  modules={[Autoplay, Pagination]}
-  spaceBetween={15}
-  slidesPerView={'auto'}
-  centeredSlides={true}
-  autoplay={{ delay: 3500, disableOnInteraction: false }}
-  loop={true}
-  pagination={{ clickable: true }}
-  className="pb-12 -mx-4 sm:mx-0" // Extra bottom padding for dots
->
-  {projects.map(({ title, label, img, href }) => (
-    <SwiperSlide key={title} className="px-4 sm:px-0 w-[85%] sm:w-full">
-      <button
-        onClick={() => router.push(href)}
-        className="w-full block rounded-2xl overflow-hidden border-l-4 border-[#8A0303] focus:outline-none bg-white shadow-md"
-      >
-        <Image
-          src={img}
-          alt={title}
-          width={400}
-          height={300}
-          className="object-cover w-full h-64 rounded-t-xl"
-        />
-        <div className="relative p-4 text-left">
-          <p className="text-xs text-white uppercase font-semibold transform -rotate-90 origin-bottom-left absolute bottom-6 left-0 bg-[#8A0303] px-2 py-1 tracking-wider">
-            {label}
-          </p>
-          <h3 className="text-lg font-serif font-bold text-[#111] pl-2 pt-2">{title}</h3>
-        </div>
-      </button>
-    </SwiperSlide>
-  ))}
-</Swiper>
+      <div className="block sm:hidden relative">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={10}
+          slidesPerView={1}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          loop={true}
+          pagination={{ clickable: true }}
+          onSlideChange={() => {
+            if (showSwipeHint) setShowSwipeHint(false);
+          }}
+          className="pb-10"
+        >
+          {projects.map(({ title, label, img, href }) => (
+            <SwiperSlide key={title} className="w-full">
+              <button
+                onClick={() => router.push(href)}
+                className="w-full block rounded-2xl overflow-hidden border-l-4 border-[#8A0303] focus:outline-none bg-white shadow-md active:scale-[0.97] active:brightness-95 transition-transform duration-100 ease-in-out"
+              >
+                <Image
+                  src={img}
+                  alt={title}
+                  width={400}
+                  height={300}
+                  className="object-cover w-full h-64 rounded-t-xl"
+                />
+                <div className="relative p-4 text-left">
+                  <p className="text-xs text-white uppercase font-semibold transform -rotate-90 origin-bottom-left absolute bottom-6 left-0 bg-[#8A0303] px-2 py-1 tracking-wider">
+                    {label}
+                  </p>
+                  <h3 className="text-lg font-serif font-bold text-[#111] pl-6 pt-2">
+                    {title}
+                  </h3>
+                </div>
+              </button>
+            </SwiperSlide>
+          ))}
 
+          {showSwipeHint && (
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 0.7, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.5, duration: 0.5, ease: 'easeInOut' }}
+              className="absolute top-1/2 right-2 sm:right-4 z-10 transform -translate-y-1/2 pointer-events-none"
+            >
+              <motion.svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8A0303"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.3, ease: 'easeInOut' }}
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </motion.svg>
+            </motion.div>
+          )}
+        </Swiper>
       </div>
 
       {/* Desktop Grid View */}
@@ -124,8 +152,8 @@ export default function FeaturedProjects() {
                 <p className="text-xs text-white uppercase font-semibold transform -rotate-90 origin-bottom-left absolute bottom-6 left-0 bg-[#8A0303] px-2 py-1 tracking-wider">
                   {label}
                 </p>
-                <h3 className="text-xl font-serif font-bold text-[#111] mb-2 pl-4 pt-2">{title}</h3>
-                <p className="text-sm text-gray-600 pl-4">Tap to explore →</p>
+                <h3 className="text-xl font-serif font-bold text-[#111] mb-2 pl-6 pt-2">{title}</h3>
+                <p className="text-sm text-gray-600 pl-6">Tap to explore →</p>
               </div>
             </button>
           </motion.div>

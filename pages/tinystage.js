@@ -14,7 +14,7 @@ export default function TinyStage() {
         <meta name="description" content="Discover the TinyStage Concert Series—an intimate live music experience featuring emerging talent." />
       </Head>
 
-      <main className="bg-[#F9F6F1] min-h-screen">
+  <main className="md:ml-64" id="page-wrap">
         <Header />
 
         {/* Hero Logo and Intro */}
