@@ -59,7 +59,7 @@ export default function Header() {
       <div className="hidden md:flex fixed top-0 left-0 h-screen w-64 bg-[#ECE7E0] p-8 flex-col justify-between z-50 shadow-xl">
         <div>
           <Link href="/" scroll={false} className="block relative w-[160px] h-[70px] mb-12">
-            <Image src="/logojjj.svg" alt="Logo" layout="fill" objectFit="contain" priority />
+            <Image src="/logoj.svg" alt="Logo" layout="fill" objectFit="contain" priority />
           </Link>
           <nav className="flex flex-col space-y-6 text-lg font-semibold">
             <button onClick={() => scrollToSection('#about')} className="text-left hover:text-[#8A0303] transition">ABOUT</button>

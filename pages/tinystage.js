@@ -65,6 +65,64 @@ export default function TinyStage() {
 
 
 
+{/* Featured Performance – Scrapbook Style */}
+<section className="bg-[#F0EBE5] px-6 py-20 overflow-hidden relative">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative">
+
+    {/* Image – Slight tilt, shadow, polaroid-style */}
+    <Link href="/artists/deja-blue" className="group relative block">
+      <motion.div
+        whileHover={{ scale: 1.02, rotate: 1 }}
+        transition={{ duration: 0.3 }}
+        className="transform rotate-[-2deg] shadow-2xl rounded-2xl overflow-hidden border-4 border-white"
+      >
+        <Image
+          src="/gallery/dejablue.png"
+          alt="Deja Blue live at TinyStage"
+          width={1200}
+          height={800}
+          className="object-cover w-full h-full"
+        />
+        {/* Optional 'label tape' overlay */}
+        <div className="absolute bottom-4 left-4 bg-black text-white text-xs uppercase tracking-wider px-3 py-1 font-mono rounded shadow-md opacity-90">
+          Deja Blue – Live at TinyStage
+        </div>
+      </motion.div>
+    </Link>
+
+    {/* Text Block – Layered with tape, handwritten vibes */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="relative z-10"
+    >
+      {/* "Featured Artist" label like washi tape */}
+      <div className="absolute -top-6 left-0 bg-yellow-300/80 text-yellow-900 px-4 py-1 text-xs font-bold uppercase tracking-widest transform -rotate-3 shadow">
+        Featured Artist
+      </div>
+
+      <h3 className="text-4xl sm:text-5xl font-extrabold font-display text-[#8A0303] mb-6">
+        Deja Blue
+      </h3>
+
+      <p className="text-gray-800 text-base leading-relaxed mb-6 max-w-prose">
+Déjà Blu is a genre-blending trio from Erie making music that feels like memory—hazy, haunting, and heartbreakingly familiar, weaving indie, lo-fi, dream pop, and alt-rock into a sound that’s equal parts vibe, vulnerability, and emotional echo.      </p>
+
+      <Link
+        href="/artists/deja-blue"
+        className="inline-block bg-[#8A0303] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#700202] transition"
+      >
+        View Artist Page →
+      </Link>
+
+      {/* Torn paper quote – optional accent */}
+      <div className="absolute bottom-[-2.5rem] right-0 bg-white px-4 py-2 shadow-md max-w-[220px] text-xs italic text-gray-600 transform rotate-2 border border-gray-200">
+        "Vibes that hum like memory.."
+      </div>
+    </motion.div>
+  </div>
+</section>
 
 
 
@@ -73,56 +131,6 @@ export default function TinyStage() {
 
 
 
-
-
-
-        {/* Featured Performance */}
-        <section className="bg-white px-6 py-16">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            
-            {/* Clickable Performance Image */}
-            <Link href="/artists/deja-blue" className="group relative block overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src="/deja-blue-performance.jpg"
-                  alt="Deja Blue live at TinyStage"
-                  width={1200}
-                  height={800}
-                  className="object-cover w-full h-full"
-                />
-                <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent px-6 py-4 text-white">
-                  <h2 className="text-2xl font-bold">Deja Blue</h2>
-                  <p className="text-sm opacity-80">
-                    A soul-funk trio bringing vintage groove to the heart of Erie.
-                  </p>
-                  <span className="underline underline-offset-2 text-sm">Click for full profile</span>
-                </div>
-              </motion.div>
-            </Link>
-
-            {/* Performer Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col justify-center"
-            >
-              <h3 className="text-3xl font-semibold text-[#8A0303] mb-4">Featured Artist: Deja Blue</h3>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae
-                justo at elit sagittis laoreet. Nulla facilisi. Aenean tristique odio
-                nec facilisis interdum. Curabitur at semper leo, in gravida nisi.
-              </p>
-              <Link href="/artists/deja-blue" className="inline-block bg-[#8A0303] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#700202] transition">
-  View Artist Page →
-</Link>
-
-            </motion.div>
-          </div>
-        </section>
       </main>
 
       <Footer />

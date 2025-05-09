@@ -16,8 +16,8 @@ export default function ContactPage() {
         <meta name="description" content="Reach out to Holland Street. We welcome collaborations, questions, and community." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main id="page-wrap" className="relative bg-[#F9F6F1]">
+  <main className="md:ml-64" id="page-wrap">
+     
         <Header />
 
         <section className="min-h-screen px-6 pt-28 pb-20">
