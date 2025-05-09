@@ -27,27 +27,38 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <section className="bg-[#8A0303] relative overflow-hidden">
-      {/* Mobile image block stacked above content */}
-      <div className="md:hidden relative w-full h-[300px] sm:h-[400px] transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
-        <Image
-          src={images[currentIndex]}
-          alt="Hero Mobile Gallery Image"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#8A0303]/80 via-[#8A0303]/40 to-transparent" />
+    <section className="bg-[#8A0303] relative overflow-hidden min-h-screen font-sans">
+      {/* Desktop View */}
+      <div className="hidden md:block absolute inset-0 z-0">
+        <div className="absolute top-20 left-24 transform rotate-[-2deg] shadow-xl w-[300px] h-[400px] border-4 border-white bg-white z-10 transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
+          <Image
+            src={images[currentIndex]}
+            alt="Curated Gallery Image"
+            fill
+            className="object-cover rounded-md"
+            priority
+          />
+        </div>
       </div>
 
-      <div className="pl-4 pr-4 py-10 md:py-16 relative z-10">
-  <div className="bg-[#F9F6F1]/80 rounded-[2rem] px-4 md:px-8 py-10 md:py-16 flex flex-col items-start justify-start space-y-6 max-w-md mx-auto sm:mx-0">
+      {/* Hero Content */}
+      <div className="relative z-10 px-6 py-20 md:py-32 max-w-4xl mx-auto">
+        {/* Faux taped label */}
+        <div className="inline-block bg-yellow-300 text-yellow-900 text-xs font-mono px-3 py-1 rounded rotate-[-2deg] shadow-sm mb-4">
+          Curator's Note
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-[#F9F6F1]/90 backdrop-blur-sm rounded-lg p-6 md:p-10 shadow-2xl relative z-10 space-y-6 max-w-xl"
+        >
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#8A0303] font-serif leading-tight">
             HOLLAND STREET
           </h1>
-          <p className="italic text-lg text-[#8A0303]">A Cultural Studio & Public House</p>
-
-          <hr className="my-4 border-[#8A0303]/20 w-12" />
+          <p className="italic text-lg text-[#8A0303] font-handwritten">A Cultural Studio & Public House</p>
+          <hr className="my-2 border-dashed border-[#8A0303]/30 w-16" />
 
           <p className="text-sm text-[#444] leading-relaxed">
             We craft <span className="font-semibold text-[#8A0303]">digital stories</span>,
@@ -60,24 +71,24 @@ export default function HeroBanner() {
             <span className="italic"> sovereignty</span>, we exist as a cultural studio and a public house
             for visionaries, refugees, and builders of new worlds.
           </p>
+        </motion.div>
 
-          <blockquote className="mt-6 text-[#8A0303] text-md font-bold uppercase tracking-wide border-l-4 border-[#8A0303] pl-4">
-            We don’t sell belonging — we cultivate becoming.
-          </blockquote>
+        {/* Torn quote snippet */}
+        <div className="absolute bottom-8 right-8 bg-white p-3 shadow-md transform rotate-2 text-xs italic text-gray-600 max-w-[200px] font-serif z-20">
+          “We don’t sell belonging — we cultivate becoming.”
         </div>
       </div>
 
-      {/* Right-anchored image gallery with gradient mask (hidden on mobile) */}
-      <div className="hidden md:flex absolute inset-0 z-0 justify-end">
-        <div className="relative w-2/3 h-full transition-opacity duration-1000" style={{ opacity: fade ? 1 : 0 }}>
+      {/* Mobile Image - Collage feel */}
+      <div className="md:hidden relative w-full h-[300px] sm:h-[400px] transition-opacity duration-1000 mt-10 px-6" style={{ opacity: fade ? 1 : 0 }}>
+        <div className="relative w-full h-full border-4 border-white shadow-lg rotate-[-1deg]">
           <Image
             src={images[currentIndex]}
-            alt="Hero Gallery Image"
+            alt="Hero Mobile Gallery Image"
             fill
-            className="object-cover object-right"
+            className="object-cover rounded-md"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#F9F6F1] to-transparent" />
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { slide as Menu } from "react-burger-menu";
 import BurgerButton from "./BurgerButton";
 import { useRouter } from 'next/router';
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,6 +54,17 @@ export default function Header() {
     },
   };
 
+  const menuLinks = !showProjectsSubMenu ? [
+    { label: 'ABOUT', onClick: () => scrollToSection('#about') },
+    { label: 'PROJECTS', onClick: () => setShowProjectsSubMenu(true) },
+    { label: 'CONTACT', onClick: closeMenu, href: '/contact' },
+  ] : [
+    { label: '← Back', onClick: () => setShowProjectsSubMenu(false), className: 'text-sm text-gray-500 mb-6' },
+    { label: 'TV-Repairman', href: '/tv-repairman' },
+    { label: 'Kagoma', href: '/kagoma' },
+    { label: 'TinyStage', href: '/tinystage' },
+  ];
+
   return (
     <>
       {/* Desktop Fixed Side Panel */}
@@ -62,20 +74,20 @@ export default function Header() {
             <Image src="/logoj.svg" alt="Logo" layout="fill" objectFit="contain" priority />
           </Link>
           <nav className="flex flex-col space-y-6 text-lg font-semibold">
-            <button onClick={() => scrollToSection('#about')} className="text-left hover:text-[#8A0303] transition">ABOUT</button>
-            <button onClick={() => scrollToSection('#projects')} className="text-left hover:text-[#8A0303] transition">PROJECTS</button>
-            <Link href="/contact" className="hover:text-[#8A0303] transition">CONTACT</Link>
+            <button onClick={() => scrollToSection('#about')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">ABOUT</button>
+            <button onClick={() => scrollToSection('#projects')} className="text-left nav-link-desktop hover:text-[#8A0303] transition">PROJECTS</button>
+            <Link href="/contact" className="nav-link-desktop hover:text-[#8A0303] transition">CONTACT</Link>
           </nav>
         </div>
-        <div className="flex justify-center mt-12">
+        <div className="mt-auto pt-6 text-center">
+          <p className="text-xs text-gray-500 mb-4">
+            Holland Street © {new Date().getFullYear()}<br />Cultivating Becoming.
+          </p>
           <a href="https://www.instagram.com/holland.street" className="relative h-8 w-8 hover:opacity-80 transition">
             <Image src="/Instagram_Glyph_Gradient_RGB.png" alt="Instagram" layout="fill" objectFit="contain" />
           </a>
         </div>
       </div>
-
-      {/* Adjust main layout */}
-      {/* Your main content (page-wrap) should now use: className="md:ml-64" */}
 
       {/* Mobile Header Bar */}
       <header className="md:hidden bg-[#F9F6F1] px-6 py-4 flex items-center justify-between shadow-md relative z-20">
@@ -96,22 +108,25 @@ export default function Header() {
           onStateChange={handleStateChange}
           itemListClassName="menu-item-list"
         >
-          {!showProjectsSubMenu ? (
-            <>
-              <button onClick={() => scrollToSection('#about')} className="menu-item-link mb-4">ABOUT</button>
-              <button onClick={() => setShowProjectsSubMenu(true)} className="menu-item-link mb-4">PROJECTS</button>
-              <Link href="/contact" className="menu-item-link mb-4" onClick={closeMenu}>CONTACT</Link>
-            </>
-          ) : (
-            <>
-              <button onClick={() => setShowProjectsSubMenu(false)} className="menu-item-link text-sm text-gray-500 mb-6">
-                ← Back
-              </button>
-              <Link href="/tv-repairman" className="menu-item-link mb-4" onClick={closeMenu}>TV-Repairman</Link>
-              <Link href="/kagoma" className="menu-item-link mb-4" onClick={closeMenu}>Kagoma</Link>
-              <Link href="/tinystage" className="menu-item-link mb-4" onClick={closeMenu}>TinyStage</Link>
-            </>
-          )}
+          {menuLinks.map(({ label, onClick, href, className = "menu-item-link mb-4" }, index) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="w-full"
+            >
+              {href ? (
+                <Link href={href} onClick={onClick} className={className}>{label}</Link>
+              ) : (
+                <button onClick={onClick} className={className}>{label}</button>
+              )}
+            </motion.div>
+          ))}
+
+          <p className="text-xs text-[#8A0303]/70 mt-12 italic text-center">
+            Cultivating Becoming.
+          </p>
 
           <a href="https://www.instagram.com/holland.street" className="relative h-10 w-10 hover:opacity-80 transition mt-8">
             <Image src="/Instagram_Glyph_Gradient_RGB.png" layout="fill" objectFit="contain" alt="Instagram" />
