@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { Dialog, DialogTitle } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules'; // Removed EffectFade
+import 'swiper/css/pagination'; // Include Swiper pagination styles
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -17,20 +18,20 @@ const projects = [
     title: 'TinyStage Concert Series',
     label: 'Live Music',
     href: '/tinystage',
-    img: '/gallery/dejablue.png',
+    img: '/gallery/dejablue.png'
   },
   {
     title: 'Kigoma NYE Celebration',
     label: 'Cultural Event',
     href: '/kigoma',
-    img: '/gallery/kig-11.png',
+    img: '/gallery/kig-11.png'
   },
   {
     title: 'TV Repairman',
     label: 'Art Installation',
     href: '/tv-repairman',
-    img: '/gallery/feed.svg',
-  },
+    img: '/gallery/feed.svg'
+  }
 ];
 
 export default function FeaturedProjects() {
@@ -38,40 +39,57 @@ export default function FeaturedProjects() {
   const router = useRouter();
 
   return (
-    <div className="relative z-10 max-w-7xl mx-auto px-6">
+    <section className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24 bg-gradient-to-b from-[#F9F6F1] to-[#f0e9e0] rounded-3xl shadow-inner">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#222] font-display">
+          <span className="text-[#8A0303]">Featured</span> Projects
+        </h2>
+        <p className="text-base text-[#555] mt-4 max-w-xl mx-auto">
+          Intimate moments. Community visions. Ideas that hit like basslines.
+        </p>
+      </motion.div>
+
       {/* Mobile Swiper View */}
       <div className="block sm:hidden">
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          spaceBetween={20}
-          slidesPerView={1}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          className="pb-4"
-        >
-          {projects.map(({ title, label, img, href }) => (
-            <SwiperSlide key={title}>
-              <button
-                onClick={() => router.push(href)} // 👈 Direct mobile navigation
-                className="w-full block rounded-3xl overflow-hidden border border-[#8A0303]/40 focus:outline-none"
-              >
-                <Image
-                  src={img}
-                  alt={title}
-                  width={400}
-                  height={300}
-                  className="object-cover w-full h-64"
-                />
-                <div className="bg-white p-4 text-left">
-                  <p className="text-xs text-[#8A0303] uppercase font-medium">{label}</p>
-                  <h3 className="text-lg font-semibold text-[#111]">{title}</h3>
-                </div>
-              </button>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+   <Swiper
+  modules={[Autoplay, Pagination]}
+  spaceBetween={15}
+  slidesPerView={'auto'}
+  centeredSlides={true}
+  autoplay={{ delay: 3500, disableOnInteraction: false }}
+  loop={true}
+  pagination={{ clickable: true }}
+  className="pb-12 -mx-4 sm:mx-0" // Extra bottom padding for dots
+>
+  {projects.map(({ title, label, img, href }) => (
+    <SwiperSlide key={title} className="px-4 sm:px-0 w-[85%] sm:w-full">
+      <button
+        onClick={() => router.push(href)}
+        className="w-full block rounded-2xl overflow-hidden border-l-4 border-[#8A0303] focus:outline-none bg-white shadow-md"
+      >
+        <Image
+          src={img}
+          alt={title}
+          width={400}
+          height={300}
+          className="object-cover w-full h-64 rounded-t-xl"
+        />
+        <div className="relative p-4 text-left">
+          <p className="text-xs text-white uppercase font-semibold transform -rotate-90 origin-bottom-left absolute bottom-6 left-0 bg-[#8A0303] px-2 py-1 tracking-wider">
+            {label}
+          </p>
+          <h3 className="text-lg font-serif font-bold text-[#111] pl-2 pt-2">{title}</h3>
+        </div>
+      </button>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
       </div>
 
       {/* Desktop Grid View */}
@@ -81,26 +99,33 @@ export default function FeaturedProjects() {
             key={title}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            transition={{ duration: 0.6, delay: index * 0.15 + 0.1 }}
             viewport={{ once: true }}
           >
             <button
               onClick={() => setSelectedProject({ title, label, img, href })}
-              className="group relative block rounded-3xl overflow-hidden shadow-xl border border-[#8A0303]/40 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300 w-full h-full focus:outline-none focus:ring-2 focus:ring-[#8A0303]"
+              className="group relative block rounded-3xl overflow-hidden shadow-xl border border-[#8A0303]/40 hover:border-[#6c0202] transition-transform duration-300 w-full h-full focus:outline-none focus:ring-2 focus:ring-[#8A0303]"
               aria-label={`View more about ${title}`}
             >
-              <Image
-                src={img}
-                alt={title}
-                width={600}
-                height={400}
-                className="object-cover w-full h-80"
-                loading="lazy"
-              />
-              <div className="relative p-6 bg-white">
-                <p className="text-xs uppercase tracking-widest text-[#8A0303] font-medium mb-1">{label}</p>
-                <h3 className="text-xl font-bold text-[#111] mb-2">{title}</h3>
-                <p className="text-sm text-gray-600">Tap to explore →</p>
+              <div className="relative">
+                <Image
+                  src={img}
+                  alt={title}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-80 group-hover:brightness-75 transition duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300 opacity-0 group-hover:opacity-100">
+                  <p className="text-white text-lg font-semibold">View Details</p>
+                </div>
+              </div>
+              <div className="relative p-6 bg-white group-hover:shadow-2xl transition-shadow duration-300">
+                <p className="text-xs text-white uppercase font-semibold transform -rotate-90 origin-bottom-left absolute bottom-6 left-0 bg-[#8A0303] px-2 py-1 tracking-wider">
+                  {label}
+                </p>
+                <h3 className="text-xl font-serif font-bold text-[#111] mb-2 pl-4 pt-2">{title}</h3>
+                <p className="text-sm text-gray-600 pl-4">Tap to explore →</p>
               </div>
             </button>
           </motion.div>
@@ -116,7 +141,7 @@ export default function FeaturedProjects() {
         <div className="flex items-center justify-center min-h-screen px-4">
           <div className="fixed inset-0 bg-black bg-opacity-50" />
 
-          <Dialog.Panel className="relative bg-[#F9F6F1] rounded-2xl max-w-md w-full mx-auto overflow-hidden shadow-xl z-50">
+          <Dialog.Panel className="relative bg-[#F9F6F1] rounded-2xl max-w-3xl w-full mx-auto overflow-hidden shadow-xl z-50 flex flex-col md:flex-row">
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 text-[#8A0303] font-bold text-xl"
@@ -126,32 +151,35 @@ export default function FeaturedProjects() {
 
             <DialogTitle className="sr-only">{selectedProject?.title}</DialogTitle>
 
-            <div className="w-full aspect-video relative">
+            <div className="w-full md:w-1/2 aspect-video md:aspect-auto relative">
               <Image
                 src={selectedProject?.img || '/placeholder.png'}
                 alt={selectedProject?.title || 'Project Image'}
                 fill
-                className="object-cover rounded-t-2xl"
+                className="object-cover md:rounded-l-2xl md:rounded-t-none rounded-t-2xl"
               />
             </div>
 
-            <div className="p-6">
+            <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
               <p className="text-xs uppercase tracking-widest text-[#8A0303] font-medium mb-1">
                 {selectedProject?.label}
               </p>
-              <h2 className="text-2xl font-bold text-[#111] mb-4">
+              <h2 className="text-2xl font-serif font-bold text-[#111] mb-2">
                 {selectedProject?.title}
               </h2>
-            <Link
-  href="/tinystage"
-  className="text-blue-600 underline"
->
-  Go to TinyStage →
-</Link>
+              <div className="h-[2px] w-16 bg-[#8A0303] my-4" />
+              <p className="text-sm text-gray-500 italic mb-6">
+                Presented by Holland Street · Est. 2024
+              </p>
+              <Link href={selectedProject?.href || '/'}
+                className="inline-block border-2 border-[#8A0303] text-[#8A0303] px-4 py-2 rounded-md text-sm font-semibold hover:bg-[#8A0303] hover:text-white transition"
+              >
+                → Visit Project
+              </Link>
             </div>
           </Dialog.Panel>
         </div>
       </Dialog>
-    </div>
+    </section>
   );
 }

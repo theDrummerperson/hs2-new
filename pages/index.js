@@ -20,8 +20,7 @@ export default function Home() {
         <title>Holland Street</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main id="page-wrap" className="relative">
+<main className="md:ml-64" id="page-wrap">
         <Header />
 
         {/* About Section */}
@@ -35,19 +34,7 @@ export default function Home() {
 
           <div className="relative z-10 max-w-7xl mx-auto">
             {/* Section Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-20"
-            >
-              <h2 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-[#111]">
-                <span className="text-[#8A0303]">Our</span> Promise
-              </h2>
-              <p className="mt-4 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-                Cultural interventions that animate public space, <span className="underline decoration-[#8A0303]/30 underline-offset-4">challenge narratives</span>, and celebrate community.
-              </p>
-            </motion.div>
+          
 
             {/* Featured Carousel */}
             <motion.div
