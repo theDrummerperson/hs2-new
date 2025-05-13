@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroBanner from "../components/HeroBanner";
 import { motion } from "framer-motion";
-import ContactForm from "../components/ContactForm";
 
 import FeaturedProjects from '../components/FeaturedProjects';
 import { useRouter } from "next/router";

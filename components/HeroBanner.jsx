@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 const images = [
   '/gallery/kig-drums.jpg',
   '/gallery/kigoma.png',
-  '/gallery/dejalive.png',
   '/gallery/kagoma.png',
 ];
 
