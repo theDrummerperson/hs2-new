@@ -161,7 +161,6 @@ export default function Header() {
     { id: 'back-projects', label: '← Back', onClick: () => setShowProjectsSubMenu(false), className: 'text-xl text-gray-600 hover:text-gray-800 mb-6 font-normal' },
     { id: 'tv-repairman-sub', label: 'TV-Repairman', href: '/tv-repairman' },
     { id: 'kigoma-sub', label: 'Kigoma NYE', href: '/kigoma' }, // Consistent naming with projects data
-    { id: 'tinystage-sub', label: 'TinyStage', href: '/tinystage' },
   ];
 
   // Helper to render menu items
